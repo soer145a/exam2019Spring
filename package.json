@@ -4,7 +4,8 @@
   "description": "our dependencies for this project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchsass": "node-sass --output-style expanded main.scss output.css -w"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/soer145a/exam2019Spring/issues"
   },
-  "homepage": "https://github.com/soer145a/exam2019Spring#readme"
+  "homepage": "https://github.com/soer145a/exam2019Spring#readme",
+  "dependencies": {
+    "gsap": "^2.1.2",
+    "node-sass": "^4.12.0"
+  }
 }

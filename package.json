@@ -1,0 +1,19 @@
+{
+  "name": "exampackage",
+  "version": "1.0.0",
+  "description": "our dependencies for this project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soer145a/exam2019Spring.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soer145a/exam2019Spring/issues"
+  },
+  "homepage": "https://github.com/soer145a/exam2019Spring#readme"
+}

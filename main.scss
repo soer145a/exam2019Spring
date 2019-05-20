@@ -1,3 +1,36 @@
+$DisplayFont: "Oswald", sans-serif;
+$TextFont: "Lato", sans-serif;
+
+$MainRed: #ff5c3c;
+$MainOrange: #fd8f07;
+$MainGreen: #05c46b;
+$MainBlue: #00c2cc;
+$MainPurple: #8e44ad;
+$MainDarkBlue: #0c2461;
+$MainYellow: #ffd32a;
+.reset {
+  margin: 0;
+  padding: 0;
+}
 body {
-  overflow-x: hidden;
+  @extend .reset;
+}
+#wheelArea {
+  width: 70vw;
+  height: 70vh;
+  background-color: lightgrey;
+  position: absolute;
+  top: 10vw;
+  left: 15vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  .hjul {
+    background-color: $MainDarkBlue;
+    transform: scale(0.95);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    .displayCase {
+      border: black solid 2px;
+    }
+  }
 }

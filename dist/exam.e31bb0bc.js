@@ -126,52 +126,87 @@ var asteroid = "imgs/009-asteroid.png";
 var alien = "imgs/046-alien.png";
 var saturn = "imgs/049-saturn.png";
 var mars = "imgs/050-mars.png";
+var wheelArray1 = [];
+var wheelArray2 = [];
+var wheelArray3 = [];
+var wheelArray4 = [];
+var wheelArray5 = [];
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  painter();
+  wheelArrayMaker();
 }
 
-function painter() {
-  var allDisplayAreas = document.querySelectorAll(".displayCase");
-  allDisplayAreas.forEach(function (area) {
-    var localCounter = Math.floor(Math.random() * 6) + 1;
-    var roundedCounter = Math.round(localCounter);
-    console.log(roundedCounter);
+function wheelArrayMaker() {
+  var wheelCounter;
 
-    if (roundedCounter == 1) {
-      area.style.backgroundImage = "url(\"".concat(star, "\")");
-      area.setAttribute("value", roundedCounter);
+  for (wheelCounter = 1; wheelCounter < 6; wheelCounter++) {
+    var counter = void 0;
+
+    for (counter = 1; counter < 21; counter++) {
+      var localCounter = Math.floor(Math.random() * 6) + 1;
+      var roundedCounter = Math.round(localCounter);
+      var wheelSelector = eval("wheelArray".concat(wheelCounter));
+      wheelSelector.push(roundedCounter);
+    }
+  }
+
+  var arrayArray = [wheelArray1, wheelArray2, wheelArray3, wheelArray4, wheelArray5];
+  arrayArray.forEach(selectThree);
+}
+
+var globalCounter = 0;
+
+function selectThree(array) {
+  globalCounter++;
+  var arrayCounter = Math.floor(Math.random() * 17) + 1;
+  var variable1 = array[arrayCounter];
+  var variable2 = array[arrayCounter + 1];
+  var variable3 = array[arrayCounter + 2];
+  painter(variable1, variable2, variable3);
+}
+
+function painter(value1, value2, value3) {
+  console.log(value1, value2, value3);
+  var parentElement = document.querySelector("#hjul".concat(globalCounter));
+  var div1 = parentElement.childNodes[1];
+  div1.setAttribute("wheel", value1);
+  var div2 = parentElement.childNodes[3];
+  div2.setAttribute("wheel", value1);
+  var div3 = parentElement.childNodes[5];
+  div3.setAttribute("wheel", value3);
+  var paintArray = [div1, div2, div3];
+  console.log(paintArray);
+  paintArray.forEach(function (div) {
+    console.log(div);
+
+    if (div.getAttribute("wheel") == 1) {
+      div.style.backgroundImage = "url(\"".concat(star, "\")");
     }
 
-    if (roundedCounter == 2) {
-      area.style.backgroundImage = "url(\"".concat(planet, "\")");
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 2) {
+      div.style.backgroundImage = "url(\"".concat(planet, "\")");
     }
 
-    if (roundedCounter == 3) {
-      area.style.backgroundImage = "url(\"".concat(asteroid, "\")");
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 3) {
+      div.style.backgroundImage = "url(\"".concat(asteroid, "\")");
     }
 
-    if (roundedCounter == 4) {
-      area.style.backgroundImage = "url(\"".concat(alien, "\")");
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 4) {
+      div.style.backgroundImage = "url(\"".concat(alien, "\")");
     }
 
-    if (roundedCounter == 5) {
-      area.style.backgroundImage = "url(\"".concat(saturn, "\")");
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 5) {
+      div.style.backgroundImage = "url(\"".concat(saturn, "\")");
     }
 
-    if (roundedCounter == 6) {
-      area.style.backgroundImage = "url(\"".concat(mars, "\")");
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 6) {
+      div.style.backgroundImage = "url(\"".concat(mars, "\")");
     }
 
-    area.style.backgroundPosition = "center";
-    area.style.backgroundSize = "70%";
-    area.style.backgroundRepeat = "no-repeat";
+    div.style.backgroundPosition = "center";
+    div.style.backgroundSize = "70%";
+    div.style.backgroundRepeat = "no-repeat";
   });
 }
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -202,7 +237,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65488" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64149" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

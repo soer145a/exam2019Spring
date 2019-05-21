@@ -5,44 +5,83 @@ const asteroid = "imgs/009-asteroid.png";
 const alien = "imgs/046-alien.png";
 const saturn = "imgs/049-saturn.png";
 const mars = "imgs/050-mars.png";
+
+const wheelArray1 = [];
+const wheelArray2 = [];
+const wheelArray3 = [];
+const wheelArray4 = [];
+const wheelArray5 = [];
+
 window.addEventListener("DOMContentLoaded", init);
 function init() {
-  painter();
+  wheelArrayMaker();
 }
+function wheelArrayMaker() {
+  let wheelCounter;
+  for (wheelCounter = 1; wheelCounter < 6; wheelCounter++) {
+    let counter;
+    for (counter = 1; counter < 21; counter++) {
+      let localCounter = Math.floor(Math.random() * 6) + 1;
+      let roundedCounter = Math.round(localCounter);
+      let wheelSelector = eval(`wheelArray${wheelCounter}`);
 
-function painter() {
-  let allDisplayAreas = document.querySelectorAll(".displayCase");
+      wheelSelector.push(roundedCounter);
+    }
+  }
+  let arrayArray = [
+    wheelArray1,
+    wheelArray2,
+    wheelArray3,
+    wheelArray4,
+    wheelArray5
+  ];
+  arrayArray.forEach(selectThree);
+}
+let globalCounter = 0;
+function selectThree(array) {
+  globalCounter++;
+  let arrayCounter = Math.floor(Math.random() * 17) + 1;
 
-  allDisplayAreas.forEach(area => {
-    let localCounter = Math.floor(Math.random() * 6) + 1;
-    let roundedCounter = Math.round(localCounter);
-    console.log(roundedCounter);
-    if (roundedCounter == 1) {
-      area.style.backgroundImage = `url("${star}")`;
-      area.setAttribute("value", roundedCounter);
+  let variable1 = array[arrayCounter];
+  let variable2 = array[arrayCounter + 1];
+  let variable3 = array[arrayCounter + 2];
+
+  painter(variable1, variable2, variable3);
+}
+function painter(value1, value2, value3) {
+  console.log(value1, value2, value3);
+  let parentElement = document.querySelector(`#hjul${globalCounter}`);
+
+  let div1 = parentElement.childNodes[1];
+  div1.setAttribute("wheel", value1);
+  let div2 = parentElement.childNodes[3];
+  div2.setAttribute("wheel", value1);
+  let div3 = parentElement.childNodes[5];
+  div3.setAttribute("wheel", value3);
+  let paintArray = [div1, div2, div3];
+  console.log(paintArray);
+  paintArray.forEach(div => {
+    console.log(div);
+    if (div.getAttribute("wheel") == 1) {
+      div.style.backgroundImage = `url("${star}")`;
     }
-    if (roundedCounter == 2) {
-      area.style.backgroundImage = `url("${planet}")`;
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 2) {
+      div.style.backgroundImage = `url("${planet}")`;
     }
-    if (roundedCounter == 3) {
-      area.style.backgroundImage = `url("${asteroid}")`;
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 3) {
+      div.style.backgroundImage = `url("${asteroid}")`;
     }
-    if (roundedCounter == 4) {
-      area.style.backgroundImage = `url("${alien}")`;
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 4) {
+      div.style.backgroundImage = `url("${alien}")`;
     }
-    if (roundedCounter == 5) {
-      area.style.backgroundImage = `url("${saturn}")`;
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 5) {
+      div.style.backgroundImage = `url("${saturn}")`;
     }
-    if (roundedCounter == 6) {
-      area.style.backgroundImage = `url("${mars}")`;
-      area.setAttribute("value", roundedCounter);
+    if (div.getAttribute("wheel") == 6) {
+      div.style.backgroundImage = `url("${mars}")`;
     }
-    area.style.backgroundPosition = "center";
-    area.style.backgroundSize = "70%";
-    area.style.backgroundRepeat = "no-repeat";
+    div.style.backgroundPosition = "center";
+    div.style.backgroundSize = "70%";
+    div.style.backgroundRepeat = "no-repeat";
   });
 }

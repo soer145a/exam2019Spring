@@ -25,5 +25,13 @@
   border: black solid 2px;
 }
 
+#formContainer {
+  width: 40vw;
+  height: 80vh;
+  background-color: grey;
+  position: absolute;
+  left: 30vw;
+}
+
 
 /*# sourceMappingURL=/output.c16d2514.css.map */

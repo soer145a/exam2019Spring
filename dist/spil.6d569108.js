@@ -117,79 +117,97 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"spil.js":[function(require,module,exports) {
+"use strict";
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+var star = "imgs/001-star.png";
+var planet = "imgs/004-planet.png";
+var asteroid = "imgs/009-asteroid.png";
+var alien = "imgs/046-alien.png";
+var saturn = "imgs/049-saturn.png";
+var mars = "imgs/050-mars.png";
+var wheelArray1 = [];
+var wheelArray2 = [];
+var wheelArray3 = [];
+var wheelArray4 = [];
+var wheelArray5 = [];
+window.addEventListener("DOMContentLoaded", init);
 
-  return bundleURL;
+function init() {
+  wheelArrayMaker();
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+function wheelArrayMaker() {
+  var wheelCounter;
 
-    if (matches) {
-      return getBaseURL(matches[0]);
+  for (wheelCounter = 1; wheelCounter < 6; wheelCounter++) {
+    var counter = void 0;
+
+    for (counter = 1; counter < 21; counter++) {
+      var localCounter = Math.floor(Math.random() * 6) + 1;
+      var roundedCounter = Math.round(localCounter);
+      var wheelSelector = eval("wheelArray".concat(wheelCounter));
+      wheelSelector.push(roundedCounter);
     }
   }
 
-  return '/';
+  var arrayArray = [wheelArray1, wheelArray2, wheelArray3, wheelArray4, wheelArray5];
+  arrayArray.forEach(selectThree);
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+var globalCounter = 0;
+
+function selectThree(array) {
+  globalCounter++;
+  var arrayCounter = Math.floor(Math.random() * 17) + 1;
+  var variable1 = array[arrayCounter];
+  var variable2 = array[arrayCounter + 1];
+  var variable3 = array[arrayCounter + 2];
+  console.log(variable1, variable2, variable3);
+  painter(variable1, variable2, variable3);
 }
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
+function painter(value1, value2, value3) {
+  console.log(value1, value2, value3);
+  var parentElement = document.querySelector("#hjul".concat(globalCounter));
+  var div1 = parentElement.childNodes[1];
+  div1.setAttribute("wheel", value1);
+  var div2 = parentElement.childNodes[3];
+  div2.setAttribute("wheel", value2);
+  var div3 = parentElement.childNodes[5];
+  div3.setAttribute("wheel", value3);
+  var paintArray = [div1, div2, div3];
+  paintArray.forEach(function (div) {
+    if (div.getAttribute("wheel") == 1) {
+      div.style.backgroundImage = "url(\"".concat(star, "\")");
     }
 
-    cssTimeout = null;
-  }, 50);
+    if (div.getAttribute("wheel") == 2) {
+      div.style.backgroundImage = "url(\"".concat(planet, "\")");
+    }
+
+    if (div.getAttribute("wheel") == 3) {
+      div.style.backgroundImage = "url(\"".concat(asteroid, "\")");
+    }
+
+    if (div.getAttribute("wheel") == 4) {
+      div.style.backgroundImage = "url(\"".concat(alien, "\")");
+    }
+
+    if (div.getAttribute("wheel") == 5) {
+      div.style.backgroundImage = "url(\"".concat(saturn, "\")");
+    }
+
+    if (div.getAttribute("wheel") == 6) {
+      div.style.backgroundImage = "url(\"".concat(mars, "\")");
+    }
+
+    div.style.backgroundPosition = "center";
+    div.style.backgroundSize = "70%";
+    div.style.backgroundRepeat = "no-repeat";
+  });
 }
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"output.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57147" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55884" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +410,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/output.c16d2514.js.map
+},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","spil.js"], null)
+//# sourceMappingURL=/spil.6d569108.js.map

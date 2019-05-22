@@ -163,6 +163,7 @@ function selectThree(array) {
   var variable1 = array[arrayCounter];
   var variable2 = array[arrayCounter + 1];
   var variable3 = array[arrayCounter + 2];
+  console.log(variable1, variable2, variable3);
   painter(variable1, variable2, variable3);
 }
 
@@ -172,14 +173,11 @@ function painter(value1, value2, value3) {
   var div1 = parentElement.childNodes[1];
   div1.setAttribute("wheel", value1);
   var div2 = parentElement.childNodes[3];
-  div2.setAttribute("wheel", value1);
+  div2.setAttribute("wheel", value2);
   var div3 = parentElement.childNodes[5];
   div3.setAttribute("wheel", value3);
   var paintArray = [div1, div2, div3];
-  console.log(paintArray);
   paintArray.forEach(function (div) {
-    console.log(div);
-
     if (div.getAttribute("wheel") == 1) {
       div.style.backgroundImage = "url(\"".concat(star, "\")");
     }
@@ -237,7 +235,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64149" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53144" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

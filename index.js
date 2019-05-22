@@ -45,7 +45,7 @@ function selectThree(array) {
   let variable1 = array[arrayCounter];
   let variable2 = array[arrayCounter + 1];
   let variable3 = array[arrayCounter + 2];
-
+  console.log(variable1, variable2, variable3);
   painter(variable1, variable2, variable3);
 }
 function painter(value1, value2, value3) {
@@ -55,13 +55,12 @@ function painter(value1, value2, value3) {
   let div1 = parentElement.childNodes[1];
   div1.setAttribute("wheel", value1);
   let div2 = parentElement.childNodes[3];
-  div2.setAttribute("wheel", value1);
+  div2.setAttribute("wheel", value2);
   let div3 = parentElement.childNodes[5];
   div3.setAttribute("wheel", value3);
   let paintArray = [div1, div2, div3];
-  console.log(paintArray);
+
   paintArray.forEach(div => {
-    console.log(div);
     if (div.getAttribute("wheel") == 1) {
       div.style.backgroundImage = `url("${star}")`;
     }

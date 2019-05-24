@@ -13,11 +13,12 @@
       <div id="formContainer">
         <div id="formLogin">
           <div id="loginInfo">
-            <label id="formUsername"><p>Brugernavn</p>
-              <input type="text">
+            <label>
+              <p>Brugernavn</p>
+              <input type="text" id="formUsername">
             </label>
-            <label id="formPassword"><p>Adganskode</p>
-              <input type="password">
+            <label><p>Adganskode</p>
+              <input type="password" id="formPassword">
             </label>
           </div>
           <div id="loginButtons">
@@ -34,27 +35,50 @@
           <div id="formUserBlockForm">
             <label>
               <p>Brugernavn</p>
-              <input type="text">
+              <input type="text" id="userName">
             </label>
             <label>
               <p>Adgangskode</p>
-              <input type="password">
+              <input type="password" id="userPassword">
             </label>
             <label>
               <p>Bekræft Adganskode</p>
-              <input type="password">
+              <input type="password" id="userPasswordConfirm">
             </label>
             <label>
               <p>Email</p>
-              <input type="email">
+              <input type="email" id="userEmail">
             </label>
             <label>
-              <p>Telefon Nmr</p>
-              <input type="text">
+              <p>Telefon Nr</p>
+              <input type="text" id="userTlf">
             </label>
+            <button id="formUserBlockFormButton">Next Step!</button>
           </div>
         </div>
-        <div id="formUserInfo"></div>
+        <div id="formUserInfo">
+          <label>
+            <p>Fornavn</p>
+            <input type="text" id="userFirstName">
+          </label>
+          <label>
+            <p>Efternavn</p>
+            <input type="text" id="userLastName">
+          </label>
+          <label>
+            <p>Adresse</p>
+            <input type="text" id="userAdress">
+          </label>
+          <label>
+            <p>By</p>
+            <input type="text" id="userCity">
+          </label>
+          <label>
+            <p>CPR Nr.</p>
+            <input type="text" id="userCpr">
+          </label>
+          <button id="formUserInfoButton">Done!</button>
+        </div>
       </div>
     </main>
   </body>

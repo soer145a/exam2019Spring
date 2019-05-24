@@ -17,54 +17,44 @@ $MainYellow: #ffd32a;
   left: 30vw;
   top: 5vw;
   #formLogin {
-    display: none;
+    display: block;
     #loginInfo {
       height: 11vw;
       margin-top: 2vw;
+      p {
+        margin-left: 7.5vw;
+        margin-bottom: 2px;
+        font-family: $DisplayFont;
+      }
       #formUsername {
-        width: 100%;
+        width: 25vw;
+        height: 2vw;
+        box-sizing: border-box;
+        border: none;
+        border-bottom: solid black 2px;
+        margin-left: 7.5vw;
+        padding-left: 1vw;
+        margin-bottom: 1vw;
+        font-family: $TextFont;
 
-        p {
-          margin-left: 7.5vw;
-          margin-bottom: 2px;
-          font-family: $DisplayFont;
-        }
-        input[type="text"] {
-          width: 25vw;
-          height: 2vw;
-          box-sizing: border-box;
-          border: none;
-          border-bottom: solid black 2px;
-          margin-left: 7.5vw;
-          padding-left: 1vw;
-          margin-bottom: 1vw;
-          font-family: $TextFont;
-        }
-        input[type="text"]:focus {
+        &:focus {
           outline: none;
           border: solid 2px black;
         }
       }
       #formPassword {
-        width: 100%;
-        p {
-          margin-left: 7.5vw;
-          margin-bottom: 2px;
-          font-family: $DisplayFont;
-        }
-        input[type="password"] {
-          width: 25vw;
-          height: 2vw;
+        width: 25vw;
+        height: 2vw;
 
-          border: none;
-          border-bottom: solid 2px black;
-          margin-left: 7.5vw;
-          padding-left: 1vw;
+        border: none;
+        border-bottom: solid 2px black;
+        margin-left: 7.5vw;
+        padding-left: 1vw;
 
-          box-sizing: border-box;
-          font-family: $TextFont;
-        }
-        input[type="password"]:focus {
+        box-sizing: border-box;
+        font-family: $TextFont;
+
+        &:focus {
           outline: none;
           border: solid 2px black;
         }
@@ -109,6 +99,50 @@ $MainYellow: #ffd32a;
     }
   }
   #formUserBlock {
+    display: none;
+    #formUserBlockFormButton {
+      position: absolute;
+      bottom: 2vw;
+      left: 2vw;
+      border: none;
+      background-color: black;
+      color: white;
+      border-radius: 3px;
+      width: 10vw;
+      height: 2vw;
+      font-family: $DisplayFont;
+    }
+    p {
+      font-family: $DisplayFont;
+      margin-left: 0.5vw;
+      margin-bottom: 0;
+      font-size: 1.4em;
+    }
+    input {
+      width: 20vw;
+      height: 2vw;
+      margin: 0.5vw;
+      margin-top: 0;
+      padding-left: 1vw;
+      font-size: 1.2em;
+      color: rgba(0, 0, 0, 0.75);
+    }
+  }
+  #formUserInfo {
+    height: 100%;
+    display: none;
+    #formUserInfoButton {
+      position: absolute;
+      bottom: 2vw;
+      left: 2vw;
+      border: none;
+      background-color: black;
+      color: white;
+      border-radius: 3px;
+      width: 10vw;
+      height: 2vw;
+      font-family: $DisplayFont;
+    }
     p {
       font-family: $DisplayFont;
       margin-left: 0.5vw;

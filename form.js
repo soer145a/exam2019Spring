@@ -73,34 +73,48 @@ function displayFirstForm() {
 }
 function saveFirstSetOfData(obj) {
   console.log("SAVE FIRST SET OF DATA");
-  obj.username = document.querySelector("#userName").value;
+
   let userCounter = 0;
   userArray.forEach(user => {
     console.log(user.username, obj.username);
     if (user.username == obj.username) {
       alert("OPTAGET BRUGERNAVN");
     } else {
-      if (
-        document.querySelector("#userPassword").value ==
-        document.querySelector("#userPasswordConfirm").value
-      ) {
-        obj.password = document.querySelector("#userPassword").value;
-        if (user.email == obj.email) {
-          alert("OPTAGET EMAIL");
-        } else {
-          obj.email = document.querySelector("#userEmail").value;
-          if (obj.telefoneNr == user.telefoneNr) {
-            alert("OPTAGET TELEFONNR");
-          } else {
-            obj.telefoneNr = document.querySelector("#userTlf").value;
-            userCounter++;
-            obj.userID = Math.random()
-              .toString(36)
-              .substr(2, 9);
-          }
-        }
+      let usernameForm = document.querySelector("#formUsername");
+      console.log(usernameForm.checkValidity());
+      if (usernameForm.checkValidity() != true) {
+        alert("Indtast gyldigt brugernavn");
       } else {
-        alert("Password1 og password 2 er ikke ens");
+        obj.username = usernameForm.value;
+
+        if (
+          document.querySelector("#userPassword").value ==
+          document.querySelector("#userPasswordConfirm").value
+        ) {
+          obj.password = document.querySelector("#userPassword").value;
+          if (user.email == obj.email) {
+            alert("OPTAGET EMAIL");
+          } else {
+            let emailForm = document.querySelector("#userEmail");
+            if (emailForm.checkValidity() != true) {
+              alert("Indtast gyldig email");
+            } else {
+              obj.email = emailForm.value;
+
+              if (obj.telefoneNr == user.telefoneNr) {
+                alert("OPTAGET TELEFONNR");
+              } else {
+                obj.telefoneNr = document.querySelector("#userTlf").value;
+                userCounter++;
+                obj.userID = Math.random()
+                  .toString(36)
+                  .substr(2, 9);
+              }
+            }
+          }
+        } else {
+          alert("Password1 og password 2 er ikke ens");
+        }
       }
     }
   });

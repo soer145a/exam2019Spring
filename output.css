@@ -1,4 +1,4 @@
-.reset, body {
+.reset, body, #formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
 }
@@ -133,7 +133,162 @@ footer {
 #formContainer {
   width: 40vw;
   height: 80vh;
-  background-color: grey;
+  background-color: lightgray;
   position: absolute;
   left: 30vw;
+  top: 5vw;
+}
+
+#formContainer #formLogin {
+  display: block;
+}
+
+#formContainer #formLogin #loginInfo {
+  height: 11vw;
+  margin-top: 2vw;
+}
+
+#formContainer #formLogin #loginInfo p {
+  margin-left: 7.5vw;
+  margin-bottom: 2px;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formUsername {
+  width: 25vw;
+  height: 2vw;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: solid black 2px;
+  margin-left: 7.5vw;
+  padding-left: 1vw;
+  margin-bottom: 1vw;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formUsername:focus {
+  outline: none;
+  border: solid 2px black;
+}
+
+#formContainer #formLogin #loginInfo #formPassword {
+  width: 25vw;
+  height: 2vw;
+  border: none;
+  border-bottom: solid 2px black;
+  margin-left: 7.5vw;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formPassword:focus {
+  outline: none;
+  border: solid 2px black;
+}
+
+#formContainer #formLogin #loginButtons {
+  width: 40vw;
+  box-sizing: border-box;
+  height: 53vh;
+}
+
+#formContainer #formLogin #loginButtons #loginButton #formLoginButton {
+  width: 25vw;
+  margin-left: 7.5vw;
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2em;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formLogin #loginButtons #formUser {
+  margin-top: 5vw;
+}
+
+#formContainer #formLogin #loginButtons #formUser p {
+  font-family: "Oswald", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+#formContainer #formLogin #loginButtons #formUser #formUserButton {
+  border: none;
+  margin-left: 7.5vw;
+  border-radius: 3px;
+  width: 25vw;
+  background-color: grey;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formUserBlock {
+  display: none;
+}
+
+#formContainer #formUserBlock #formUserBlockFormButton {
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  width: 10vw;
+  height: 2vw;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formUserBlock p {
+  font-family: "Oswald", sans-serif;
+  margin-left: 0.5vw;
+  margin-bottom: 0;
+  font-size: 1.4em;
+}
+
+#formContainer #formUserBlock input {
+  width: 20vw;
+  height: 2vw;
+  margin: 0.5vw;
+  margin-top: 0;
+  padding-left: 1vw;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formUserInfo {
+  height: 100%;
+  display: none;
+}
+
+#formContainer #formUserInfo #formUserInfoButton {
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  width: 10vw;
+  height: 2vw;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formUserInfo p {
+  font-family: "Oswald", sans-serif;
+  margin-left: 0.5vw;
+  margin-bottom: 0;
+  font-size: 1.4em;
+}
+
+#formContainer #formUserInfo input {
+  width: 20vw;
+  height: 2vw;
+  margin: 0.5vw;
+  margin-top: 0;
+  padding-left: 1vw;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.75);
 }

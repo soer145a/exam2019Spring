@@ -3,26 +3,39 @@
   padding: 0;
 }
 
+body {
+  overflow-y: hidden;
+}
+
+#spilOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transform: scale(0.9);
+  z-index: 2;
+}
+
 #wheelArea {
+  z-index: 1;
   width: 70vw;
   height: 70vh;
-  background-color: lightgrey;
   position: absolute;
-  top: 10vw;
+  top: 4vw;
   left: 15vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.2vw;
 }
 
-#wheelArea .hjul {
-  background-color: #0c2461;
-  transform: scale(0.95);
+#wheelArea .wheel {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1vw;
+  grid-template-columns: 1fr;
 }
 
-#wheelArea .hjul .displayCase {
-  border: black solid 2px;
+#wheelArea .wheel .displayCaseDiv {
+  width: 70vw /5;
+  height: 13vw;
 }
 
 #formContainer {
@@ -190,6 +203,7 @@
 
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

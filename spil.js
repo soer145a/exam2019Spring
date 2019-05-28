@@ -22,12 +22,22 @@ const wheel_5 = [];
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  wheelArrayMaker();
+  document.querySelector("#startSpil").addEventListener("click", () => {
+    console.log("START");
+    wheelArrayMaker();
+  });
 }
 
 //wheelArrayMaker tager og selektere et hjul fra 1 til 5, og skaber 20 ramdomized værdier som bliver skubbet ind i hvert hjul
 
 function wheelArrayMaker() {
+  document.querySelector("#wheelArea").innerHTML = "";
+  wheel_1.length = 0;
+  wheel_2.length = 0;
+  wheel_3.length = 0;
+  wheel_4.length = 0;
+  wheel_5.length = 0;
+  arrayPositionArray.length = 0;
   let wheelCounter;
 
   //først tager den hjul nummer 1
@@ -124,9 +134,7 @@ function paintWheelDivs() {
     div.style.backgroundRepeat = "no-repeat";
   });
 
-  document.querySelector("#startSpil").addEventListener("click", () => {
-    animateWheels();
-  });
+  animateWheels();
 }
 function animateWheels() {
   let allWheels = document.querySelectorAll(".wheel");
@@ -134,12 +142,12 @@ function animateWheels() {
   let localCounter = -1;
   allWheels.forEach(wheel => {
     localCounter++;
-    let tweenDistance = arrayPositionArray[localCounter] * 14.1;
+    let tweenDistance = arrayPositionArray[localCounter] * 14.01;
     TweenMax.to(wheel, 0.5, {
-      y: `-${tweenDistance}vw`,
-      onComplete: checkVictory()
+      y: `-${tweenDistance}vw`
     });
   });
+  checkVictory();
 }
 function checkVictory() {
   if (
@@ -148,14 +156,35 @@ function checkVictory() {
     resultsArray[6] == resultsArray[9] &&
     resultsArray[9] == resultsArray[12]
   ) {
-    alert("TOP LINE IS VALID");
+    console.log("TOP LINE IS VALID");
   } else {
-    alert("TOP LINE IS INVALID");
+    console.log("TOP LINE IS INVALID");
+  }
+  if (
+    resultsArray[1] == resultsArray[4] &&
+    resultsArray[4] == resultsArray[7] &&
+    resultsArray[7] == resultsArray[10] &&
+    resultsArray[10] == resultsArray[13]
+  ) {
+    console.log("MIDDLE LINE IS VALID");
+  } else {
+    console.log("MIDDLELINE IS INVALID");
+  }
+  if (
+    resultsArray[2] == resultsArray[5] &&
+    resultsArray[5] == resultsArray[8] &&
+    resultsArray[8] == resultsArray[11] &&
+    resultsArray[11] == resultsArray[14]
+  ) {
+    console.log("BOTTOM LINE IS VALID");
+  } else {
+    console.log("BOTTOM LINE IS INVALID");
   }
 }
 // den får et array som parameter, og vælger hvilket tre af billedværdierne som skal vises til sidst
 let resultsArray = [];
 let arrayPositionArray = [];
+
 function selectThree(array) {
   let arrayPosition = Math.floor(Math.random() * 17) + 1;
 

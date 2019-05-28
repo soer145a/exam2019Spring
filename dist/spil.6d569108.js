@@ -10812,11 +10812,21 @@ var wheel_5 = []; //init kalder på funktion wheelArrayMaker
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  wheelArrayMaker();
+  document.querySelector("#startSpil").addEventListener("click", function () {
+    console.log("START");
+    wheelArrayMaker();
+  });
 } //wheelArrayMaker tager og selektere et hjul fra 1 til 5, og skaber 20 ramdomized værdier som bliver skubbet ind i hvert hjul
 
 
 function wheelArrayMaker() {
+  document.querySelector("#wheelArea").innerHTML = "";
+  wheel_1.length = 0;
+  wheel_2.length = 0;
+  wheel_3.length = 0;
+  wheel_4.length = 0;
+  wheel_5.length = 0;
+  arrayPositionArray.length = 0;
   var wheelCounter; //først tager den hjul nummer 1
 
   for (wheelCounter = 1; wheelCounter < 6; wheelCounter++) {
@@ -10902,9 +10912,7 @@ function paintWheelDivs() {
     div.style.backgroundSize = "70%";
     div.style.backgroundRepeat = "no-repeat";
   });
-  document.querySelector("#startSpil").addEventListener("click", function () {
-    animateWheels();
-  });
+  animateWheels();
 }
 
 function animateWheels() {
@@ -10912,20 +10920,32 @@ function animateWheels() {
   var localCounter = -1;
   allWheels.forEach(function (wheel) {
     localCounter++;
-    var tweenDistance = arrayPositionArray[localCounter] * 14.1;
+    var tweenDistance = arrayPositionArray[localCounter] * 14.01;
 
     _TweenMax.default.to(wheel, 0.5, {
-      y: "-".concat(tweenDistance, "vw"),
-      onComplete: checkVictory()
+      y: "-".concat(tweenDistance, "vw")
     });
   });
+  checkVictory();
 }
 
 function checkVictory() {
   if (resultsArray[0] == resultsArray[3] && resultsArray[3] == resultsArray[6] && resultsArray[6] == resultsArray[9] && resultsArray[9] == resultsArray[12]) {
-    alert("TOP LINE IS VALID");
+    console.log("TOP LINE IS VALID");
   } else {
-    alert("TOP LINE IS INVALID");
+    console.log("TOP LINE IS INVALID");
+  }
+
+  if (resultsArray[1] == resultsArray[4] && resultsArray[4] == resultsArray[7] && resultsArray[7] == resultsArray[10] && resultsArray[10] == resultsArray[13]) {
+    console.log("MIDDLE LINE IS VALID");
+  } else {
+    console.log("MIDDLELINE IS INVALID");
+  }
+
+  if (resultsArray[2] == resultsArray[5] && resultsArray[5] == resultsArray[8] && resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14]) {
+    console.log("BOTTOM LINE IS VALID");
+  } else {
+    console.log("BOTTOM LINE IS INVALID");
   }
 } // den får et array som parameter, og vælger hvilket tre af billedværdierne som skal vises til sidst
 
@@ -10975,7 +10995,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50420" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59600" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

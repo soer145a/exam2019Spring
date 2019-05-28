@@ -1,4 +1,4 @@
-.reset, body, #formContainer #formLogin #loginButtons #formUser p {
+.reset, body, #startSpil p, #formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
 }
@@ -11,25 +11,40 @@ body {
   width: 100vw;
   height: 100vh;
   position: absolute;
-  transform: scale(0.9);
+  transform: scale(0.65);
   z-index: 2;
+}
+
+#startSpil {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 2vw;
+}
+
+#startSpil p {
+  text-align: center;
 }
 
 #wheelArea {
   z-index: 1;
   width: 70vw;
   height: 70vh;
+  transform: scale(0.745);
   position: absolute;
   top: 4vw;
   left: 15vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-gap: 0.2vw;
+  grid-gap: 0.4vw;
 }
 
 #wheelArea .wheel {
   display: grid;
-  grid-gap: 1vw;
+  grid-gap: 1.1vw;
   grid-template-columns: 1fr;
 }
 

@@ -1,5 +1,6 @@
 "use strict";
 import TweenMax from "gsap/TweenMax";
+import { parse } from "querystring";
 
 const star = "imgs/001-star.png";
 const planet = "imgs/004-planet.png";
@@ -10,6 +11,9 @@ const mars = "imgs/050-mars.png";
 
 //hjulene fra nummer et til fem - et er til venstre og fem er til højre
 //hvert hjul indeholder et tomt array
+
+let saldo = 10000;
+let sats;
 
 const wheel_1 = [];
 const wheel_2 = [];
@@ -23,9 +27,22 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   document.querySelector("#startSpil").addEventListener("click", () => {
-    console.log("START");
+    console.log(saldo, sats);
+    let satsInputValue = document.querySelector("#satsInput").value;
+    sats = parseInt(satsInputValue, 10);
+    saldo = saldo - sats;
+    document.querySelector("#saldoText").textContent = saldo;
     wheelArrayMaker();
   });
+  document.querySelector("#autoPlay").addEventListener("click", () => {
+    console.log("autoplay START");
+    loopTheLoop();
+  });
+}
+
+function loopTheLoop() {
+  setTimeout(loopTheLoop, 2000);
+  wheelArrayMaker();
 }
 
 //wheelArrayMaker tager og selektere et hjul fra 1 til 5, og skaber 20 ramdomized værdier som bliver skubbet ind i hvert hjul
@@ -147,7 +164,7 @@ function animateWheels() {
       y: `-${tweenDistance}vw`
     });
   });
-  checkVictory();
+  setTimeout(checkVictory, 500);
 }
 function checkVictory() {
   if (
@@ -157,6 +174,9 @@ function checkVictory() {
     resultsArray[9] == resultsArray[12]
   ) {
     console.log("TOP LINE IS VALID");
+    saldo = saldo + sats * 2;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
   } else {
     console.log("TOP LINE IS INVALID");
   }

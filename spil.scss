@@ -36,6 +36,35 @@ body {
     text-align: center;
   }
 }
+#autoPlay {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 4vw;
+  p {
+    @extend .reset;
+    text-align: center;
+  }
+}
+
+#satsLabel {
+  position: absolute;
+  top: 6vw;
+  left: 2vw;
+}
+#saldoFelt {
+  position: absolute;
+  top: 10vw;
+  left: 2vw;
+}
+#gevinst {
+  position: absolute;
+  top: 14vw;
+  left: 2vw;
+}
 
 #wheelArea {
   z-index: 1;

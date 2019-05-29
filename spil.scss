@@ -14,23 +14,78 @@ $MainYellow: #ffd32a;
 }
 body {
   @extend .reset;
+  overflow-y: hidden;
 }
-#wheelArea {
-  width: 70vw;
-  height: 70vh;
-  background-color: lightgrey;
+#spilOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transform: scale(0.65);
+  z-index: 2;
+}
+#startSpil {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 2vw;
+  p {
+    @extend .reset;
+    text-align: center;
+  }
+}
+#autoPlay {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 4vw;
+  p {
+    @extend .reset;
+    text-align: center;
+  }
+}
+
+#satsLabel {
+  position: absolute;
+  top: 6vw;
+  left: 2vw;
+}
+#saldoFelt {
   position: absolute;
   top: 10vw;
+  left: 2vw;
+}
+#gevinst {
+  position: absolute;
+  top: 14vw;
+  left: 2vw;
+}
+
+#wheelArea {
+  z-index: 1;
+  width: 70vw;
+  height: 70vh;
+  transform: scale(0.745);
+  position: absolute;
+  top: 4vw;
   left: 15vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  .hjul {
-    background-color: $MainDarkBlue;
-    transform: scale(0.95);
+  grid-gap: 0.4vw;
+
+  .wheel {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    .displayCase {
-      border: black solid 2px;
+    grid-gap: 1.1vw;
+    grid-template-columns: 1fr;
+
+    .displayCaseDiv {
+      width: 70vw /5;
+      height: 13vw;
     }
   }
 }

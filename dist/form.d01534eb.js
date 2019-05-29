@@ -188,7 +188,6 @@ function displayFirstForm() {
 
 function saveFirstSetOfData(obj) {
   console.log("SAVE FIRST SET OF DATA");
-  obj.username = document.querySelector("#userName").value;
   var userCounter = 0;
   userArray.forEach(function (user) {
     console.log(user.username, obj.username);
@@ -196,24 +195,39 @@ function saveFirstSetOfData(obj) {
     if (user.username == obj.username) {
       alert("OPTAGET BRUGERNAVN");
     } else {
-      if (document.querySelector("#userPassword").value == document.querySelector("#userPasswordConfirm").value) {
-        obj.password = document.querySelector("#userPassword").value;
+      var usernameForm = document.querySelector("#formUsername");
+      console.log(usernameForm.checkValidity());
 
-        if (user.email == obj.email) {
-          alert("OPTAGET EMAIL");
-        } else {
-          obj.email = document.querySelector("#userEmail").value;
-
-          if (obj.telefoneNr == user.telefoneNr) {
-            alert("OPTAGET TELEFONNR");
-          } else {
-            obj.telefoneNr = document.querySelector("#userTlf").value;
-            userCounter++;
-            obj.userID = Math.random().toString(36).substr(2, 9);
-          }
-        }
+      if (usernameForm.checkValidity() != true) {
+        alert("Indtast gyldigt brugernavn");
       } else {
-        alert("Password1 og password 2 er ikke ens");
+        obj.username = usernameForm.value;
+
+        if (document.querySelector("#userPassword").value == document.querySelector("#userPasswordConfirm").value) {
+          obj.password = document.querySelector("#userPassword").value;
+
+          if (user.email == obj.email) {
+            alert("OPTAGET EMAIL");
+          } else {
+            var emailForm = document.querySelector("#userEmail");
+
+            if (emailForm.checkValidity() != true) {
+              alert("Indtast gyldig email");
+            } else {
+              obj.email = emailForm.value;
+
+              if (obj.telefoneNr == user.telefoneNr) {
+                alert("OPTAGET TELEFONNR");
+              } else {
+                obj.telefoneNr = document.querySelector("#userTlf").value;
+                userCounter++;
+                obj.userID = Math.random().toString(36).substr(2, 9);
+              }
+            }
+          }
+        } else {
+          alert("Password1 og password 2 er ikke ens");
+        }
       }
     }
   });
@@ -292,7 +306,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59361" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59404" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

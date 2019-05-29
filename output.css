@@ -1,133 +1,88 @@
-.reset, body, #formContainer #formLogin #loginButtons #formUser p {
+.reset, body, #startSpil p, #autoPlay p, #formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
-}
-
-#wheelArea {
-  width: 70vw;
-  height: 70vh;
-  background-color: lightgrey;
-  position: absolute;
-  top: 10vw;
-  left: 15vw;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-#wheelArea .hjul {
-  background-color: #0c2461;
-  transform: scale(0.95);
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-}
-
-#wheelArea .hjul .displayCase {
-  border: black solid 2px;
 }
 
 body {
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
+  overflow-y: hidden;
 }
 
-header {
-  width: 100%;
-  height: 50px;
-  border: 1px solid black;
+#spilOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transform: scale(0.65);
+  z-index: 2;
 }
 
-.kampangeBillede {
-  width: 100%;
-  height: 500px;
-  border: 1px solid black;
-  background-color: blue;
-  margin-bottom: 4vw;
+#startSpil {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 2vw;
 }
 
-#containerIndhold {
-  width: 100%;
+#startSpil p {
+  text-align: center;
 }
 
-.textKampange {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid black;
-  margin-bottom: 4vw;
+#autoPlay {
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 4vw;
 }
 
-.ikoner {
-  width: 80%;
-  margin: 0 auto;
+#autoPlay p {
+  text-align: center;
+}
+
+#satsLabel {
+  position: absolute;
+  top: 6vw;
+  left: 2vw;
+}
+
+#saldoFelt {
+  position: absolute;
+  top: 10vw;
+  left: 2vw;
+}
+
+#gevinst {
+  position: absolute;
+  top: 14vw;
+  left: 2vw;
+}
+
+#wheelArea {
+  z-index: 1;
+  width: 70vw;
+  height: 70vh;
+  transform: scale(0.745);
+  position: absolute;
+  top: 4vw;
+  left: 15vw;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-bottom: 4vw;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.4vw;
 }
 
-.ikon {
-  width: 18vw;
-  height: 18vw;
-  border: 1px solid black;
-  margin: 0 auto;
-}
-
-.videoContainer {
-  width: 80%;
-  margin: 0 auto;
-  border: 1px solid black;
+#wheelArea .wheel {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 4vw;
+  grid-gap: 1.1vw;
+  grid-template-columns: 1fr;
 }
 
-.video {
-  width: 37.7vw;
-  height: 25vw;
-  border: 1px solid blue;
-}
-
-footer {
-  width: 100%;
-  border: 1px solid black;
-}
-
-.textContainer {
-  width: 80%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-bottom: 2vw;
-  margin-top: 2vw;
-}
-
-.footerLogo {
-  width: 160px;
-  height: 25px;
-}
-
-.text {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  border: 1px solid blue;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
-
-.sponsorbar {
-  width: 60%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin-bottom: 2vw;
-}
-
-.sponsor {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  border-radius: 100%;
-  margin: 0 auto;
+#wheelArea .wheel .displayCaseDiv {
+  width: 70vw /5;
+  height: 13vw;
 }
 
 #formContainer {
@@ -291,4 +246,224 @@ footer {
   padding-left: 1vw;
   font-size: 1.2em;
   color: rgba(0, 0, 0, 0.75);
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #a88952;
+  display: grid;
+  grid-template-columns: 45% 42% 10%;
+  margin: 0 auto;
+}
+
+.dsLogo img {
+  width: 150px;
+  padding: 10px;
+}
+
+.casinoLogo h1 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+}
+
+.logInd {
+  width: 80px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2em;
+}
+
+.kampangeBillede {
+  width: 100%;
+  height: 200px;
+  background-color: blue;
+  margin-bottom: 4vw;
+}
+
+#containerIndhold {
+  width: 100%;
+}
+
+.textKampange {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 8vw;
+}
+
+.ikoner {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 28px;
+  margin-bottom: 8vw;
+}
+
+.ikon {
+  width: 40vw;
+  height: 40vw;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.videoContainer {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-bottom: 8vw;
+}
+
+.video {
+  width: 100%;
+  height: 250px;
+  border: 1px solid blue;
+}
+
+footer {
+  width: 100%;
+  background-color: #a88952;
+  padding-top: 2vw;
+}
+
+.textContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2vw;
+}
+
+.footerLogo {
+  width: 160px;
+  height: 25px;
+}
+
+.text {
+  width: 44vw;
+  height: 150px;
+  display: grid;
+  margin-bottom: 3vw;
+}
+
+.text p {
+  margin-block-start: 0em;
+}
+
+.kontaktKundeservice p {
+  margin-block-start: 0;
+}
+
+.kundeserviceKnap {
+  height: 40px;
+  font-family: "Lato", sans-serif;
+  background-color: white;
+  border: none;
+}
+
+#footerSponsor {
+  background-color: white;
+}
+
+.sponsorbar {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sponsor {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.sponsor img {
+  width: 100%;
+}
+
+.stopSpillet {
+  padding-top: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.wlaLogo {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 627px) {
+  .kampangeBillede {
+    height: 350px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .kampangeBillede {
+    height: 400px;
+  }
+  .ikoner {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .ikon {
+    width: 150px;
+    height: 150px;
+  }
+  .videoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .textContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .text {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .textKampange {
+    width: 80%;
+  }
+  .ikoner {
+    width: 80%;
+    grid-gap: 25px;
+  }
+  .ikon {
+    width: 18vw;
+    height: 18vw;
+  }
+  .videoContainer {
+    width: 80%;
+  }
+  .textContainer {
+    width: 80%;
+  }
+  .sponsorbar {
+    width: 60%;
+  }
 }

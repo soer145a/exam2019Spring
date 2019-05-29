@@ -11001,7 +11001,8 @@ function init() {
     var satsInputValue = document.querySelector("#satsInput").value;
     sats = parseInt(satsInputValue, 10);
     saldo = saldo - sats;
-    document.querySelector("#saldoText").textContent = saldo;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",-DKK");
+    document.querySelector("#gevinstText").textContent = "0,- DKK";
     wheelArrayMaker();
   });
   document.querySelector("#autoPlay").addEventListener("click", function () {
@@ -11115,38 +11116,97 @@ function paintWheelDivs() {
 function animateWheels() {
   var allWheels = document.querySelectorAll(".wheel");
   var localCounter = -1;
+  var tweenDelayCounter = -0.5;
   allWheels.forEach(function (wheel) {
     localCounter++;
+    tweenDelayCounter = tweenDelayCounter + 0.5;
+    console.log(tweenDelayCounter);
     var tweenDistance = arrayPositionArray[localCounter] * 14.01;
 
     _TweenMax.default.to(wheel, 0.5, {
-      y: "-".concat(tweenDistance, "vw")
+      y: "-".concat(tweenDistance, "vw"),
+      delay: "".concat(tweenDelayCounter)
     });
   });
-  setTimeout(checkVictory, 500);
+  setTimeout(checkVictory, 2500);
 }
 
 function checkVictory() {
+  console.log(resultsArray);
+
   if (resultsArray[0] == resultsArray[3] && resultsArray[3] == resultsArray[6] && resultsArray[6] == resultsArray[9] && resultsArray[9] == resultsArray[12]) {
     console.log("TOP LINE IS VALID");
-    saldo = saldo + sats * 2;
+    saldo = saldo + sats * 5;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
   } else {
     console.log("TOP LINE IS INVALID");
   }
 
   if (resultsArray[1] == resultsArray[4] && resultsArray[4] == resultsArray[7] && resultsArray[7] == resultsArray[10] && resultsArray[10] == resultsArray[13]) {
     console.log("MIDDLE LINE IS VALID");
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
   } else {
     console.log("MIDDLELINE IS INVALID");
   }
 
   if (resultsArray[2] == resultsArray[5] && resultsArray[5] == resultsArray[8] && resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14]) {
     console.log("BOTTOM LINE IS VALID");
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
   } else {
     console.log("BOTTOM LINE IS INVALID");
   }
+
+  if (resultsArray[0] == resultsArray[1] && resultsArray[1] == resultsArray[2]) {
+    console.log("COLUMN 1 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+  } else {
+    console.log("COLUMN 1 IS INVALID");
+  }
+
+  if (resultsArray[3] == resultsArray[4] && resultsArray[4] == resultsArray[5]) {
+    console.log("COLUMN 2 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+  } else {
+    console.log("COLUMN 2 IS INVALID");
+  }
+
+  if (resultsArray[6] == resultsArray[7] && resultsArray[7] == resultsArray[8]) {
+    console.log("COLUMN 3 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+  } else {
+    console.log("COLUMN 3 IS INVALID");
+  }
+
+  if (resultsArray[9] == resultsArray[10] && resultsArray[10] == resultsArray[11]) {
+    console.log("COLUMN 4 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+  } else {
+    console.log("COLUMN 4 IS INVALID");
+  }
+
+  if (resultsArray[12] == resultsArray[13] && resultsArray[13] == resultsArray[14]) {
+    console.log("COLUMN 3 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+  } else {
+    console.log("COLUMN 3 IS INVALID");
+  }
+
+  resultsArray.length = 0;
 } // den får et array som parameter, og vælger hvilket tre af billedværdierne som skal vises til sidst
 
 
@@ -11195,7 +11255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59600" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61571" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

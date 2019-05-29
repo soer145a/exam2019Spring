@@ -1,0 +1,17 @@
+Streg mellem vinder billeder
+micro-animation
+
+3x Alien - Minigame
+5x stjerne på række - JACKPOOOT
+5x alle andre på midterste række - Mellemgevinst
+3x på skrå - mindre gevinst
+
+3x ens på sammenhængende rækker - Lille gevinst
+4x ens på sammenhængende rækker - mellem gevinst
+5x ens på sammenhængende rækker - mellem gevinst
+
+3x på en kolone - lille gevinst
+
+Modal for gevinst transparent og værdi!
+Animation for text PRANGENDE AS FUCK.
+Knapper for spillet skal indsættes.

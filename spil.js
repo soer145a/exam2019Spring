@@ -1,6 +1,5 @@
 "use strict";
 import TweenMax from "gsap/TweenMax";
-import { parse } from "querystring";
 
 const star = "imgs/001-star.png";
 const planet = "imgs/004-planet.png";

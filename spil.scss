@@ -16,27 +16,62 @@ body {
   @extend .reset;
   overflow-y: hidden;
 }
+#baggrund {
+  transform: scale(1.2);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  img {
+    z-index: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+#frame {
+  width: 51vw;
+  height: 62vh;
+  position: absolute;
+  top: 9vw;
+  left: 25vw;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.7;
+}
+#baggrundFrame {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0vw;
+  left: 0;
+  z-index: 3;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    z-index: 4;
+    transform: scale(1.1);
+  }
+}
 #spilOverlay {
+  top: 0;
   width: 100vw;
   height: 100vh;
   position: absolute;
   transform: scale(0.65);
-  z-index: 2;
+  z-index: 4;
 }
 #startSpil {
   position: absolute;
-  width: 5vw;
-  height: 2vw;
-  background-color: white;
-  border: solid black 2px;
-  left: 2vw;
-  top: 2vw;
-  p {
-    @extend .reset;
-    text-align: center;
-  }
+
+  left: 45.5vw;
+  bottom: -0.5vw;
+
+  z-index: 4;
+  transform: scale(0.9);
 }
 #autoPlay {
+  display: none;
   position: absolute;
   width: 5vw;
   height: 2vw;
@@ -67,7 +102,7 @@ body {
 }
 
 #wheelArea {
-  z-index: 1;
+  z-index: 2;
   width: 70vw;
   height: 70vh;
   transform: scale(0.745);
@@ -79,13 +114,14 @@ body {
   grid-gap: 0.4vw;
 
   .wheel {
+    z-index: 2;
     display: grid;
     grid-gap: 1.1vw;
     grid-template-columns: 1fr;
 
     .displayCaseDiv {
-      width: 70vw /5;
       height: 13vw;
+      z-index: 2;
     }
   }
 }

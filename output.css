@@ -1,0 +1,599 @@
+.reset, body, #autoPlay p, #formContainer #formLogin #loginButtons #formUser p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+#baggrund {
+  transform: scale(1.2);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#baggrund img {
+  z-index: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#frame {
+  width: 51vw;
+  height: 62vh;
+  position: absolute;
+  top: 9vw;
+  left: 25vw;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.7;
+}
+
+#baggrundFrame {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0vw;
+  left: 0;
+  z-index: 3;
+}
+
+#baggrundFrame img {
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  transform: scale(1.1);
+}
+
+#spilOverlay {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  transform: scale(0.65);
+  z-index: 4;
+}
+
+#startSpil {
+  position: absolute;
+  left: 45.5vw;
+  bottom: -0.5vw;
+  z-index: 4;
+  transform: scale(0.9);
+}
+
+#autoPlay {
+  display: none;
+  position: absolute;
+  width: 5vw;
+  height: 2vw;
+  background-color: white;
+  border: solid black 2px;
+  left: 2vw;
+  top: 4vw;
+}
+
+#autoPlay p {
+  text-align: center;
+}
+
+#satsLabel {
+  position: absolute;
+  top: 6vw;
+  left: 2vw;
+}
+
+#saldoFelt {
+  position: absolute;
+  top: 10vw;
+  left: 2vw;
+}
+
+#gevinst {
+  position: absolute;
+  top: 14vw;
+  left: 2vw;
+}
+
+#wheelArea {
+  z-index: 2;
+  width: 70vw;
+  height: 70vh;
+  transform: scale(0.745);
+  position: absolute;
+  top: 4vw;
+  left: 15vw;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 0.4vw;
+}
+
+#wheelArea .wheel {
+  z-index: 2;
+  display: grid;
+  grid-gap: 1.1vw;
+  grid-template-columns: 1fr;
+}
+
+#wheelArea .wheel .displayCaseDiv {
+  height: 13vw;
+  z-index: 2;
+}
+
+#formContainer {
+  width: 40vw;
+  height: 80vh;
+  background-color: lightgray;
+  position: absolute;
+  left: 30vw;
+  top: 5vw;
+}
+
+#formContainer #formLogin {
+  display: block;
+}
+
+#formContainer #formLogin #loginInfo {
+  height: 11vw;
+  margin-top: 2vw;
+}
+
+#formContainer #formLogin #loginInfo p {
+  margin-left: 7.5vw;
+  margin-bottom: 2px;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formUsername {
+  width: 25vw;
+  height: 2vw;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: solid black 2px;
+  margin-left: 7.5vw;
+  padding-left: 1vw;
+  margin-bottom: 1vw;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formUsername:focus {
+  outline: none;
+  border: solid 2px black;
+}
+
+#formContainer #formLogin #loginInfo #formPassword {
+  width: 25vw;
+  height: 2vw;
+  border: none;
+  border-bottom: solid 2px black;
+  margin-left: 7.5vw;
+  padding-left: 1vw;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formLogin #loginInfo #formPassword:focus {
+  outline: none;
+  border: solid 2px black;
+}
+
+#formContainer #formLogin #loginButtons {
+  width: 40vw;
+  box-sizing: border-box;
+  height: 53vh;
+}
+
+#formContainer #formLogin #loginButtons #loginButton #formLoginButton {
+  width: 25vw;
+  margin-left: 7.5vw;
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 1.2em;
+  border-radius: 4px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formLogin #loginButtons #formUser {
+  margin-top: 5vw;
+}
+
+#formContainer #formLogin #loginButtons #formUser p {
+  font-family: "Oswald", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+#formContainer #formLogin #loginButtons #formUser #formUserButton {
+  border: none;
+  margin-left: 7.5vw;
+  border-radius: 3px;
+  width: 25vw;
+  background-color: grey;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formUserBlock {
+  display: none;
+}
+
+#formContainer #formUserBlock #formUserBlockFormButton {
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  width: 10vw;
+  height: 2vw;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formUserBlock p {
+  font-family: "Oswald", sans-serif;
+  margin-left: 0.5vw;
+  margin-bottom: 0;
+  font-size: 1.4em;
+}
+
+#formContainer #formUserBlock input {
+  width: 20vw;
+  height: 2vw;
+  margin: 0.5vw;
+  margin-top: 0;
+  padding-left: 1vw;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+#formContainer #formUserInfo {
+  height: 100%;
+  display: none;
+}
+
+#formContainer #formUserInfo #formUserInfoButton {
+  position: absolute;
+  bottom: 2vw;
+  left: 2vw;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  width: 10vw;
+  height: 2vw;
+  font-family: "Oswald", sans-serif;
+}
+
+#formContainer #formUserInfo p {
+  font-family: "Oswald", sans-serif;
+  margin-left: 0.5vw;
+  margin-bottom: 0;
+  font-size: 1.4em;
+}
+
+#formContainer #formUserInfo input {
+  width: 20vw;
+  height: 2vw;
+  margin: 0.5vw;
+  margin-top: 0;
+  padding-left: 1vw;
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Audiowide", cursive;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #a88952;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+}
+
+.dsLogo img {
+  width: 35px;
+  padding: 7px 10px 10px 20px;
+}
+
+.logoDesktop {
+  display: none;
+}
+
+.casinoLogo img {
+  width: 150px;
+  padding: 10px;
+}
+
+.logInd {
+  width: 80px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 1.2em;
+}
+
+.kampangeBillede {
+  height: 200px;
+  margin-bottom: 4vw;
+  background-image: url(backgroundDesktop.svg);
+  background-size: 100%;
+}
+
+.alien {
+  background-image: url(flyvendealien-01.svg);
+  background-size: 100% 100%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 50px;
+  left: -170px;
+  animation-name: alien;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}
+
+@keyframes alien {
+  0% {
+    transform: translateX(0px) translateY(-60px);
+  }
+  50% {
+    transform: translateY(20px) translateX(120px);
+  }
+  100% {
+    transform: translateX(210px) translateY(30px);
+  }
+}
+
+.spilNuKnap {
+  background-image: url(spilknap-03.svg);
+  background-size: 100% 100%;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: 140px;
+  left: 220px;
+}
+
+#containerIndhold {
+  width: 100%;
+}
+
+.textKampange {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 8vw;
+}
+
+.ikoner {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 28px;
+  margin-bottom: 8vw;
+}
+
+.ikon {
+  width: 40vw;
+  margin: 0 auto;
+}
+
+#insertMoney img {
+  width: 100%;
+}
+
+#spinIkon img {
+  width: 100%;
+}
+
+#payoutIkon img {
+  width: 100%;
+}
+
+.videoContainer {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-bottom: 8vw;
+}
+
+.video {
+  width: 100%;
+  height: 250px;
+  border: 1px solid blue;
+}
+
+footer {
+  width: 100%;
+  background-color: #a88952;
+  padding-top: 2vw;
+}
+
+.textContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2vw;
+}
+
+.footerLogo {
+  width: 180px;
+  height: 35px;
+  margin-left: 15px;
+}
+
+.text {
+  width: 44vw;
+  height: 150px;
+  display: grid;
+  margin-bottom: 3vw;
+  margin-top: 5vw;
+  text-align: center;
+}
+
+.text p {
+  margin-block-start: 0em;
+}
+
+.textAdresse {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.kontaktKundeservice {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.kontaktKundeservice p {
+  margin-block-start: 0;
+}
+
+.kundeserviceKnap {
+  height: 40px;
+  font-family: "Lato", sans-serif;
+  background-color: white;
+  border: none;
+}
+
+#footerSponsor {
+  background-color: white;
+}
+
+.sponsorbar {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sponsor {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.sponsor img {
+  width: 100%;
+}
+
+.stopSpillet {
+  padding-top: 10px;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.wlaLogo {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 627px) {
+  .kampangeBillede {
+    height: 350px;
+  }
+  .ikoner {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .ikon {
+    width: 25vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .kampangeBillede {
+    height: 400px;
+  }
+  .ikon {
+    width: 150px;
+    height: 150px;
+  }
+  .ikoner {
+    margin-bottom: 4vw;
+  }
+  .videoContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .textContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .text {
+    width: 20vw;
+    text-align: left;
+    margin-top: 0vw;
+  }
+  .textAdresse {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: left;
+  }
+  .kontaktKundeservice {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    text-align: left;
+  }
+  .footerLogo {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .textKampange {
+    width: 80%;
+  }
+  .ikoner {
+    width: 80%;
+    grid-gap: 25px;
+  }
+  .ikon {
+    width: 18vw;
+    height: 18vw;
+  }
+  .videoContainer {
+    width: 80%;
+  }
+  .textContainer {
+    width: 80%;
+  }
+  .sponsorbar {
+    width: 60%;
+  }
+}

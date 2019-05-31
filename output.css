@@ -2,6 +2,9 @@
 body,
 #startSpil p,
 #autoPlay p,
+#formContainer #formLogin #loginButtons #formUser p .reset,
+body,
+#autoPlay p,
 #formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
@@ -11,29 +14,66 @@ body {
   overflow-y: hidden;
 }
 
+#baggrund {
+  transform: scale(1.2);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#baggrund img {
+  z-index: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+#frame {
+  width: 51vw;
+  height: 62vh;
+  position: absolute;
+  top: 9vw;
+  left: 25vw;
+  z-index: 1;
+  background-color: black;
+  opacity: 0.7;
+}
+
+#baggrundFrame {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0vw;
+  left: 0;
+  z-index: 3;
+}
+
+#baggrundFrame img {
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  transform: scale(1.1);
+}
+
 #spilOverlay {
+  top: 0;
   width: 100vw;
   height: 100vh;
   position: absolute;
   transform: scale(0.65);
-  z-index: 2;
+  z-index: 4;
 }
 
 #startSpil {
   position: absolute;
-  width: 5vw;
-  height: 2vw;
-  background-color: white;
-  border: solid black 2px;
-  left: 2vw;
-  top: 2vw;
-}
-
-#startSpil p {
-  text-align: center;
+  left: 45.5vw;
+  bottom: -0.5vw;
+  z-index: 4;
+  transform: scale(0.9);
 }
 
 #autoPlay {
+  display: none;
   position: absolute;
   width: 5vw;
   height: 2vw;
@@ -66,7 +106,7 @@ body {
 }
 
 #wheelArea {
-  z-index: 1;
+  z-index: 2;
   width: 70vw;
   height: 70vh;
   transform: scale(0.745);
@@ -79,14 +119,15 @@ body {
 }
 
 #wheelArea .wheel {
+  z-index: 2;
   display: grid;
   grid-gap: 1.1vw;
   grid-template-columns: 1fr;
 }
 
 #wheelArea .wheel .displayCaseDiv {
-  width: 70vw /5;
   height: 13vw;
+  z-index: 2;
 }
 
 #formContainer {
@@ -254,14 +295,13 @@ body {
 
 body {
   overflow-x: hidden;
-  overflow-y: hidden;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 h1 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Audiowide", cursive;
 }
 
 p {
@@ -273,13 +313,13 @@ header {
   height: 50px;
   background-color: #a88952;
   display: grid;
-  grid-template-columns: 45% 42% 10%;
+  grid-template-columns: 45% 34% 18%;
   margin: 0 auto;
 }
 
 .dsLogo img {
-  width: 150px;
-  padding: 10px;
+  width: 120px;
+  padding: 15px;
 }
 
 .casinoLogo h1 {
@@ -357,8 +397,9 @@ footer {
 }
 
 .footerLogo {
-  width: 160px;
-  height: 25px;
+  width: 180px;
+  height: 35px;
+  margin-left: 15px;
 }
 
 .text {
@@ -366,10 +407,25 @@ footer {
   height: 150px;
   display: grid;
   margin-bottom: 3vw;
+  margin-top: 5vw;
+  text-align: center;
 }
 
 .text p {
   margin-block-start: 0em;
+}
+
+.textAdresse {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.kontaktKundeservice {
+  grid-row-start: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
 }
 
 .kontaktKundeservice p {
@@ -443,9 +499,26 @@ footer {
   }
   .textContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
   }
   .text {
     width: 20vw;
+    text-align: left;
+    margin-top: 0vw;
+  }
+  .textAdresse {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    text-align: left;
+  }
+  .kontaktKundeservice {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    text-align: left;
+  }
+  .footerLogo {
+    margin-left: 0px;
   }
 }
 

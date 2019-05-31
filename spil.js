@@ -1,6 +1,5 @@
 "use strict";
 import TweenMax from "gsap/TweenMax";
-import { parse } from "querystring";
 
 const star = "imgs/001-star.png";
 const planet = "imgs/004-planet.png";
@@ -31,7 +30,9 @@ function init() {
     let satsInputValue = document.querySelector("#satsInput").value;
     sats = parseInt(satsInputValue, 10);
     saldo = saldo - sats;
-    document.querySelector("#saldoText").textContent = saldo;
+    document.querySelector("#saldoText").textContent = `${saldo},-DKK`;
+    document.querySelector("#gevinstText").textContent = "0,- DKK";
+
     wheelArrayMaker();
   });
   document.querySelector("#autoPlay").addEventListener("click", () => {
@@ -157,16 +158,21 @@ function animateWheels() {
   let allWheels = document.querySelectorAll(".wheel");
 
   let localCounter = -1;
+  let tweenDelayCounter = -0.5;
   allWheels.forEach(wheel => {
     localCounter++;
+    tweenDelayCounter = tweenDelayCounter + 0.5;
+    console.log(tweenDelayCounter);
     let tweenDistance = arrayPositionArray[localCounter] * 14.01;
     TweenMax.to(wheel, 0.5, {
-      y: `-${tweenDistance}vw`
+      y: `-${tweenDistance}vw`,
+      delay: `${tweenDelayCounter}`
     });
   });
-  setTimeout(checkVictory, 500);
+  setTimeout(checkVictory, 2500);
 }
 function checkVictory() {
+  console.log(resultsArray);
   if (
     resultsArray[0] == resultsArray[3] &&
     resultsArray[3] == resultsArray[6] &&
@@ -174,9 +180,9 @@ function checkVictory() {
     resultsArray[9] == resultsArray[12]
   ) {
     console.log("TOP LINE IS VALID");
-    saldo = saldo + sats * 2;
+    saldo = saldo + sats * 5;
     document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
-    document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("TOP LINE IS INVALID");
   }
@@ -187,6 +193,9 @@ function checkVictory() {
     resultsArray[10] == resultsArray[13]
   ) {
     console.log("MIDDLE LINE IS VALID");
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("MIDDLELINE IS INVALID");
   }
@@ -197,9 +206,68 @@ function checkVictory() {
     resultsArray[11] == resultsArray[14]
   ) {
     console.log("BOTTOM LINE IS VALID");
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("BOTTOM LINE IS INVALID");
   }
+  if (
+    resultsArray[0] == resultsArray[1] &&
+    resultsArray[1] == resultsArray[2]
+  ) {
+    console.log("COLUMN 1 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+  } else {
+    console.log("COLUMN 1 IS INVALID");
+  }
+  if (
+    resultsArray[3] == resultsArray[4] &&
+    resultsArray[4] == resultsArray[5]
+  ) {
+    console.log("COLUMN 2 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+  } else {
+    console.log("COLUMN 2 IS INVALID");
+  }
+  if (
+    resultsArray[6] == resultsArray[7] &&
+    resultsArray[7] == resultsArray[8]
+  ) {
+    console.log("COLUMN 3 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+  } else {
+    console.log("COLUMN 3 IS INVALID");
+  }
+  if (
+    resultsArray[9] == resultsArray[10] &&
+    resultsArray[10] == resultsArray[11]
+  ) {
+    console.log("COLUMN 4 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+  } else {
+    console.log("COLUMN 4 IS INVALID");
+  }
+  if (
+    resultsArray[12] == resultsArray[13] &&
+    resultsArray[13] == resultsArray[14]
+  ) {
+    console.log("COLUMN 3 IS VALID");
+    saldo = saldo + sats * 3;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+  } else {
+    console.log("COLUMN 3 IS INVALID");
+  }
+  resultsArray.length = 0;
 }
 // den får et array som parameter, og vælger hvilket tre af billedværdierne som skal vises til sidst
 let resultsArray = [];

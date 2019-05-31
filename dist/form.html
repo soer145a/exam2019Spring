@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="/output.c16d2514.css">
+    <link rel="stylesheet" href="/form.d1023bcc.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Oswald:700|Roboto" rel="stylesheet">
-  <script src="/output.c16d2514.js"></script></head>
+  <script src="/form.d1023bcc.js"></script></head>
   <body>
     <main>
       <div id="formContainer">
@@ -23,11 +23,11 @@
           </div>
           <div id="loginButtons">
             <div id="loginButton">
-              <button id="formLoginButton">Login</button>
+              <button id="formLoginButton">Log ind</button>
             </div>
             <div id="formUser">
               <p>Ny Bruger?</p>
-              <button id="formUserButton">Opret</button>
+              <button id="formUserButton">Opret konto</button>
             </div>
           </div>
         </div>
@@ -42,18 +42,20 @@
               <input type="password" id="userPassword">
             </label>
             <label>
-              <p>Bekræft Adganskode</p>
+              <p>Bekræft adganskode</p>
               <input type="password" id="userPasswordConfirm">
             </label>
             <label>
-              <p>Email</p>
+              <p>E-mail</p>
               <input type="email" id="userEmail">
             </label>
             <label>
-              <p>Telefon Nr</p>
+              <p>Telefon nr</p>
               <input type="text" id="userTlf">
             </label>
-            <button id="formUserBlockFormButton">Next Step!</button>
+            <div class="nextStep">
+              <button id="formUserBlockFormButton">Videre</button>
+            </div>
           </div>
         </div>
         <div id="formUserInfo">
@@ -70,19 +72,23 @@
             <input type="text" id="userAdress">
           </label>
           <label>
-            <p>By</p>
+            <p>Postnummer og by</p>
             <input type="text" id="userCity">
           </label>
           <label>
-            <p>CPR Nr.</p>
+            <p>Cpr nr</p>
             <input type="text" id="userCpr">
           </label>
-          <button id="formUserInfoButton">Done!</button>
+          <div class="nextStep">
+            <button id="formUserInfoButton">Videre</button>
+          </div>
         </div>
         <div id="nemID">
-          <h1>Valider med nem-id</h1>
+          <p>Valider med nem-id</p>
           <div class="nemIdPlaceholder"></div>
-          <button class="opretBruger">Opret bruger</button>
+          <button class="opretBruger">
+            <a href="/spil.html">Opret bruger</a>
+          </button>
         </div>
       </div>
     </main>

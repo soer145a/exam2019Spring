@@ -1,9 +1,13 @@
 "use strict";
+
+import { Ease } from "gsap";
+
 window.addEventListener("DOMContentLoaded", init);
 let userArray = [];
 const front = document.querySelector("#formLogin");
 const userData = document.querySelector("#formUserBlock");
 const userInfo = document.querySelector("#formUserInfo");
+const nemId = document.querySelector("#nemID");
 
 function init() {
   fetchMyJson();
@@ -51,6 +55,7 @@ function checkLoginStatus() {
 function displayFirstForm() {
   front.style.display = "none";
   userData.style.display = "block";
+
   const dataObject = {
     username: "-placeholder-",
     password: "-placeholder-",
@@ -152,7 +157,7 @@ function saveSecondSetOfData(obj) {
 }
 
 function sendInfoToRest(obj) {
-  front.style.display = "block";
+  nemId.style.display = "block";
   userInfo.style.display = "none";
   const postData = JSON.stringify(obj);
   fetch(

@@ -1,162 +1,297 @@
-$DisplayFont: "Oswald", sans-serif;
-$TextFont: "Lato", sans-serif;
-
-$MainRed: #ff5c3c;
-$MainOrange: #fd8f07;
-$MainGreen: #05c46b;
-$MainBlue: #00c2cc;
-$MainPurple: #8e44ad;
-$MainDarkBlue: #0c2461;
-$MainYellow: #ffd32a;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0c2461;
+}
 
 #formContainer {
-  width: 40vw;
-  height: 80vh;
-  background-color: lightgray;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  margin-top: 90px;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 7.5px;
+}
+
+#formLogin {
+  display: block;
+  width: 60%;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+label p {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 15px;
+  margin-block-end: 0em;
+  font-family: "Lato", sans-serif;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+#formLoginButton {
+  margin: 10px;
+  margin-top: 15px;
+  width: 161px;
+  border: none;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+}
+
+#formUser {
+  font-family: "Lato", sans-serif;
+}
+
+#formUser p {
+  margin-block-end: 0em;
+}
+
+#formUserButton {
+  margin: 10px;
+  width: 161px;
+  border: none;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formUserBlock {
+  display: none;
+}
+
+#formUserBlock {
+  width: 80%;
+  height: 400px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 7.5px;
+  background-color: white;
+  animation-name: slideIn;
   position: absolute;
-  left: 30vw;
-  top: 5vw;
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+#formUserBlock label p {
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+#formUserBlock input {
+  margin-left: 20px;
+  width: 70%;
+}
+
+.nextStep {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#formUserBlockFormButton {
+  width: 158px;
+  border: none;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+}
+
+#formContainer #formUserInfo {
+  height: 400px;
+  display: none;
+  width: 80%;
+}
+
+#nemID {
+  display: none;
+}
+
+#formUserInfo {
+  padding-top: 10px;
+  padding-bottom: 30px;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 7.5px;
+  background-color: white;
+  animation-name: slideIn;
+  position: absolute;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+#formUserInfo label p {
+  margin-left: 0;
+  padding-left: 20px;
+}
+
+#formUserInfo input {
+  margin-left: 20px;
+  width: 70%;
+}
+
+#formUserInfoButton {
+  width: 158px;
+  border: none;
+  padding: 5px;
+  font-family: "Lato", sans-serif;
+}
+
+#nemID {
+  padding: 10px;
+  height: 420px;
+  width: 75%;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 7.5px;
+  background-color: white;
+  animation-name: slideIn;
+  position: absolute;
+  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-400px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+#nemID p {
+  margin-left: 10px;
+  font-family: "Lato", sans-serif;
+}
+
+.nemIdPlaceholder {
+  width: 180px;
+  height: 200px;
+  background-color: lightgray;
+  margin: 10px;
+}
+
+.opretBruger {
+  width: 158px;
+  border: none;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-family: "Lato", sans-serif;
+  margin-left: 10px;
+}
+
+.opretBruger a {
+  color: black;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+}
+
+@media screen and (min-width: 627px) {
+  label p {
+    margin-left: 73px;
+  }
+
+  #formContainer {
+    margin-top: 12px;
+    height: 350px;
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+
   #formLogin {
-    display: block;
-    #loginInfo {
-      height: 11vw;
-      margin-top: 2vw;
-      p {
-        margin-left: 7.5vw;
-        margin-bottom: 2px;
-        font-family: $DisplayFont;
-      }
-      #formUsername {
-        width: 25vw;
-        height: 2vw;
-        box-sizing: border-box;
-        border: none;
-        border-bottom: solid black 2px;
-        margin-left: 7.5vw;
-        padding-left: 1vw;
-        margin-bottom: 1vw;
-        font-family: $TextFont;
-
-        &:focus {
-          outline: none;
-          border: solid 2px black;
-        }
-      }
-      #formPassword {
-        width: 25vw;
-        height: 2vw;
-
-        border: none;
-        border-bottom: solid 2px black;
-        margin-left: 7.5vw;
-        padding-left: 1vw;
-
-        box-sizing: border-box;
-        font-family: $TextFont;
-
-        &:focus {
-          outline: none;
-          border: solid 2px black;
-        }
-      }
-    }
-    #loginButtons {
-      width: 40vw;
-
-      box-sizing: border-box;
-      height: 53vh;
-
-      #loginButton {
-        #formLoginButton {
-          width: 25vw;
-          margin-left: 7.5vw;
-          border: none;
-          background-color: black;
-          color: white;
-          font-family: $TextFont;
-          font-size: 1.2em;
-          border-radius: 4px;
-          box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
-        }
-      }
-      #formUser {
-        margin-top: 5vw;
-        p {
-          @extend .reset;
-          font-family: $DisplayFont;
-          width: 100%;
-          text-align: center;
-        }
-        #formUserButton {
-          border: none;
-          margin-left: 7.5vw;
-          border-radius: 3px;
-          width: 25vw;
-          background-color: grey;
-          box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
-        }
-      }
-    }
+    background-color: white;
+    width: 100%;
+    height: 310px;
+    border-radius: 7.5px;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
   }
+
   #formUserBlock {
-    display: none;
-    #formUserBlockFormButton {
-      position: absolute;
-      bottom: 2vw;
-      left: 2vw;
-      border: none;
-      background-color: black;
-      color: white;
-      border-radius: 3px;
-      width: 10vw;
-      height: 2vw;
-      font-family: $DisplayFont;
-    }
-    p {
-      font-family: $DisplayFont;
-      margin-left: 0.5vw;
-      margin-bottom: 0;
-      font-size: 1.4em;
-    }
-    input {
-      width: 20vw;
-      height: 2vw;
-      margin: 0.5vw;
-      margin-top: 0;
-      padding-left: 1vw;
-      font-size: 1.2em;
-      color: rgba(0, 0, 0, 0.75);
-    }
+    height: 310px;
   }
+
+  #formContainer #formUserInfo {
+    height: 310px;
+  }
+
+  #formUserBlock input {
+    width: 60%;
+  }
+
+  #formUserInfo input {
+    width: 60%;
+  }
+
+  #nemID {
+    height: 330px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  label p {
+    margin-left: 108px;
+  }
+
+  #formUserBlock input {
+    width: 50%;
+  }
+
+  #formUserInfo input {
+    width: 50%;
+  }
+
+  #formContainer {
+    margin-top: 100px;
+    height: 450px;
+  }
+
+  #formUserBlock {
+    margin-top: 100px;
+    height: 450px;
+  }
+
   #formUserInfo {
-    height: 100%;
-    display: none;
-    #formUserInfoButton {
-      position: absolute;
-      bottom: 2vw;
-      left: 2vw;
-      border: none;
-      background-color: black;
-      color: white;
-      border-radius: 3px;
-      width: 10vw;
-      height: 2vw;
-      font-family: $DisplayFont;
-    }
-    p {
-      font-family: $DisplayFont;
-      margin-left: 0.5vw;
-      margin-bottom: 0;
-      font-size: 1.4em;
-    }
-    input {
-      width: 20vw;
-      height: 2vw;
-      margin: 0.5vw;
-      margin-top: 0;
-      padding-left: 1vw;
-      font-size: 1.2em;
-      color: rgba(0, 0, 0, 0.75);
-    }
+    margin-top: 100px;
+    height: 450px;
+  }
+
+  #nemID {
+    margin-top: 100px;
+    height: 450px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  label p {
+    margin-left: 168px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  label p {
+    margin-left: 210px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  label p {
+    margin-left: 18.9vw;
   }
 }

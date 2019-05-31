@@ -15,30 +15,67 @@ header {
   height: 50px;
   background-color: #a88952;
   display: grid;
-  grid-template-columns: 45% 34% 18%;
+  grid-template-columns: 1fr 1fr 1fr;
   margin: 0 auto; }
 
 .dsLogo img {
-  width: 120px;
-  padding: 15px; }
+  width: 35px;
+  padding: 7px 10px 10px 20px; }
 
-.casinoLogo h1 {
-  margin-block-start: 0em;
-  margin-block-end: 0em; }
+.logoDesktop {
+  display: none; }
+
+.casinoLogo img {
+  width: 150px;
+  padding: 10px; }
 
 .logInd {
   width: 80px;
   height: 50px;
   background-color: transparent;
   border: none;
+  margin-left: 20px;
   font-family: "Lato", sans-serif;
+  color: white;
   font-size: 1.2em; }
 
 .kampangeBillede {
-  width: 100%;
   height: 200px;
-  background-color: blue;
-  margin-bottom: 4vw; }
+  margin-bottom: 4vw;
+  background-image: url(backgroundDesktop.0acea093.svg);
+  background-size: 100%; }
+
+.alien {
+  background-image: url(flyvendealien-01.26d210b8.svg);
+  background-size: 100% 100%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 50px;
+  left: -170px;
+  animation-name: alien;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-direction: alternate; }
+
+@keyframes alien {
+  0% {
+    transform: translateX(0px) translateY(-60px); }
+  50% {
+    transform: translateY(20px) translateX(120px); }
+  100% {
+    transform: translateX(210px) translateY(30px); } }
+
+.spilNuKnap {
+  background-image: url(spilknap-03.e3a217e4.svg);
+  background-size: 100% 100%;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: 140px;
+  left: 220px; }
 
 #containerIndhold {
   width: 100%; }
@@ -52,15 +89,22 @@ header {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 28px;
   margin-bottom: 8vw; }
 
 .ikon {
   width: 40vw;
-  height: 40vw;
-  border: 1px solid black;
   margin: 0 auto; }
+
+#insertMoney img {
+  width: 100%; }
+
+#spinIkon img {
+  width: 100%; }
+
+#payoutIkon img {
+  width: 100%; }
 
 .videoContainer {
   width: 90%;
@@ -153,16 +197,20 @@ footer {
 
 @media screen and (min-width: 627px) {
   .kampangeBillede {
-    height: 350px; } }
+    height: 350px; }
+  .ikoner {
+    grid-template-columns: 1fr 1fr 1fr; }
+  .ikon {
+    width: 25vw; } }
 
 @media screen and (min-width: 768px) {
   .kampangeBillede {
     height: 400px; }
-  .ikoner {
-    grid-template-columns: 1fr 1fr 1fr 1fr; }
   .ikon {
     width: 150px;
     height: 150px; }
+  .ikoner {
+    margin-bottom: 4vw; }
   .videoContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;

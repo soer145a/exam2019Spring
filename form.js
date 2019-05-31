@@ -150,6 +150,7 @@ function saveSecondSetOfData(obj) {
     }
   });
 }
+
 function sendInfoToRest(obj) {
   front.style.display = "block";
   userInfo.style.display = "none";

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="formtest.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato|Oswald:700|Roboto"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div id="formContainer">
+        <div id="formLogin">
+          <div id="loginInfo">
+            <label>
+              <p>Brugernavn</p>
+              <input
+                type="text"
+                id="formUsername"
+                pattern="[a-zA-Z0-9]{2,20}"
+              />
+            </label>
+            <label
+              ><p>Adganskode</p>
+              <input type="password" id="formPassword" />
+            </label>
+          </div>
+          <div id="loginButtons">
+            <div id="loginButton">
+              <button id="formLoginButton">Log ind</button>
+            </div>
+            <div id="formUser">
+              <p>Ny Bruger?</p>
+              <button id="formUserButton">Opret konto</button>
+            </div>
+          </div>
+        </div>
+        <div id="formUserBlock">
+          <div id="formUserBlockForm">
+            <label>
+              <p>Brugernavn</p>
+              <input type="text" id="userName" />
+            </label>
+            <label>
+              <p>Adgangskode</p>
+              <input type="password" id="userPassword" />
+            </label>
+            <label>
+              <p>Bekræft adganskode</p>
+              <input type="password" id="userPasswordConfirm" />
+            </label>
+            <label>
+              <p>E-mail</p>
+              <input type="email" id="userEmail" />
+            </label>
+            <label>
+              <p>Telefon nr</p>
+              <input type="text" id="userTlf" />
+            </label>
+            <div class="nextStep">
+              <button id="formUserBlockFormButton">Videre</button>
+            </div>
+          </div>
+        </div>
+        <div id="formUserInfo">
+          <label>
+            <p>Fornavn</p>
+            <input type="text" id="userFirstName" />
+          </label>
+          <label>
+            <p>Efternavn</p>
+            <input type="text" id="userLastName" />
+          </label>
+          <label>
+            <p>Adresse</p>
+            <input type="text" id="userAdress" />
+          </label>
+          <label>
+            <p>Postnummer og by</p>
+            <input type="text" id="userCity" />
+          </label>
+          <label>
+            <p>Cpr nr</p>
+            <input type="text" id="userCpr" />
+          </label>
+          <div class="nextStep">
+            <button id="formUserInfoButton">Videre</button>
+          </div>
+        </div>
+        <div id="nemID">
+          <p>Valider med nem-id</p>
+          <div class="nemIdPlaceholder"></div>
+          <button class="opretBruger">
+            <a href="spil.html">Opret bruger</a>
+          </button>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="formtest.js"></script>
+</html>

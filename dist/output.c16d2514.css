@@ -1,4 +1,8 @@
-.reset, body, #startSpil p, #autoPlay p, #formContainer #formLogin #loginButtons #formUser p {
+.reset,
+body,
+#startSpil p,
+#autoPlay p,
+#formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
 }

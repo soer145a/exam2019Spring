@@ -1,0 +1,1025 @@
+<svg id="Casino" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="470.9" height="88" viewBox="0 0 4709 880">
+  <defs>
+    <style>
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+
+      .cls-3 {
+        filter: url(#filter-3);
+      }
+
+      .cls-4 {
+        filter: url(#filter-4);
+      }
+
+      .cls-5 {
+        filter: url(#filter-5);
+      }
+
+      .cls-6 {
+        filter: url(#filter-6);
+      }
+
+      .cls-7 {
+        filter: url(#filter-7);
+      }
+
+      .cls-8 {
+        filter: url(#filter-8);
+      }
+
+      .cls-9 {
+        filter: url(#filter-9);
+      }
+
+      .cls-10 {
+        filter: url(#filter-10);
+      }
+
+      .cls-11 {
+        filter: url(#filter-11);
+      }
+
+      .cls-12 {
+        filter: url(#filter-12);
+      }
+
+      .cls-13 {
+        filter: url(#filter-13);
+      }
+
+      .cls-14 {
+        filter: url(#filter-14);
+      }
+
+      .cls-15 {
+        filter: url(#filter-15);
+      }
+
+      .cls-16 {
+        filter: url(#filter-16);
+      }
+
+      .cls-17 {
+        filter: url(#filter-17);
+      }
+
+      .cls-18 {
+        filter: url(#filter-18);
+      }
+
+      .cls-19 {
+        filter: url(#filter-19);
+      }
+
+      .cls-20 {
+        filter: url(#filter-20);
+      }
+
+      .cls-21 {
+        filter: url(#filter-21);
+      }
+
+      .cls-22 {
+        filter: url(#filter-22);
+      }
+
+      .cls-23 {
+        filter: url(#filter-23);
+      }
+
+      .cls-24 {
+        filter: url(#filter-24);
+      }
+
+      .cls-25 {
+        filter: url(#filter-25);
+      }
+
+      .cls-26 {
+        filter: url(#filter-26);
+      }
+
+      .cls-27 {
+        filter: url(#filter-27);
+      }
+
+      .cls-28 {
+        filter: url(#filter-28);
+      }
+
+      .cls-29 {
+        filter: url(#filter-29);
+      }
+
+      .cls-30 {
+        filter: url(#filter-30);
+      }
+
+      .cls-31 {
+        filter: url(#filter-31);
+      }
+
+      .cls-32 {
+        filter: url(#filter-32);
+      }
+
+      .cls-33 {
+        filter: url(#filter-33);
+      }
+
+      .cls-34 {
+        filter: url(#filter-34);
+      }
+
+      .cls-35 {
+        filter: url(#filter-35);
+      }
+
+      .cls-36 {
+        filter: url(#filter-36);
+      }
+
+      .cls-37 {
+        filter: url(#filter-37);
+      }
+
+      .cls-38 {
+        filter: url(#filter-38);
+      }
+
+      .cls-39 {
+        filter: url(#filter-39);
+      }
+
+      .cls-40 {
+        filter: url(#filter-40);
+      }
+
+      .cls-41 {
+        filter: url(#filter-41);
+      }
+
+      .cls-42 {
+        filter: url(#filter-42);
+      }
+
+      .cls-43 {
+        filter: url(#filter-43);
+      }
+
+      .cls-44 {
+        filter: url(#filter-44);
+      }
+
+      .cls-45 {
+        filter: url(#filter-45);
+      }
+
+      .cls-46 {
+        filter: url(#filter-46);
+      }
+
+      .cls-47 {
+        filter: url(#filter-47);
+      }
+
+      .cls-48 {
+        filter: url(#filter-48);
+      }
+
+      .cls-49 {
+        filter: url(#filter-49);
+      }
+
+      .cls-50 {
+        filter: url(#filter-50);
+      }
+
+      .cls-51 {
+        filter: url(#filter-51);
+      }
+
+      .cls-52 {
+        filter: url(#filter-52);
+      }
+
+      .cls-53 {
+        filter: url(#filter-53);
+      }
+
+      .cls-54 {
+        filter: url(#filter-54);
+      }
+
+      .cls-55 {
+        filter: url(#filter-55);
+      }
+
+      .cls-56 {
+        filter: url(#filter-56);
+      }
+    </style>
+    <filter id="filter" x="541" y="34" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-2" x="372" y="-9" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-3" x="196" y="2" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-4" x="50" y="100" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-5" x="-9" y="263" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-6" x="50" y="426" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-7" x="196" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-8" x="372" y="535" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-9" x="541" y="492" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-10" x="809" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-11" x="871" y="342" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-12" x="946" y="175" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-13" x="1034" y="2" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-14" x="1203" y="2" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-15" x="1294" y="175" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-16" x="1362" y="342" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-17" x="1425" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-18" x="1034" y="348" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-19" x="1198" y="348" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-20" x="1693" y="492" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-21" x="1862" y="535" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-22" x="2047" y="535" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-23" x="2223" y="492" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-24" x="2223" y="325" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-25" x="2047" y="285" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-26" x="1862" y="250" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-27" x="1693" y="210" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-28" x="1693" y="43" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-29" x="1862" y="-9" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-30" x="2047" y="-9" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-31" x="2216" y="34" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-32" x="2559" y="2" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-33" x="2559" y="175" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-34" x="2559" y="348" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-35" x="2559" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-36" x="2895" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-37" x="2895" y="348" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-38" x="2895" y="175" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-39" x="2895" y="-1" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-40" x="3054" y="135" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-41" x="3171" y="263" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-42" x="3286" y="391" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-43" x="3442" y="524" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-44" x="3449" y="342" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-45" x="3447" y="175" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-46" x="3449" y="2" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-47" x="3785" y="86" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-48" x="3954" y="-9" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-49" x="4139" y="-9" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-50" x="4298" y="86" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-51" x="4364" y="263" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-52" x="4298" y="435" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-53" x="4139" y="535" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-54" x="3954" y="535" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-55" x="3785" y="435" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+    <filter id="filter-56" x="3725" y="261" width="355" height="355" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="33.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#b1832e" flood-opacity="0.96"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" mode="screen" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+      <feFlood result="flood-2" flood-color="#fff"/>
+      <feComposite result="composite-5" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend-3" in2="blend-2"/>
+    </filter>
+  </defs>
+  <g id="C">
+    <circle class="cls-1" cx="718" cy="211" r="75"/>
+    <circle id="Ellipse_1_copy" data-name="Ellipse 1 copy" class="cls-2" cx="549" cy="168" r="75"/>
+    <circle id="Ellipse_1_copy_2" data-name="Ellipse 1 copy 2" class="cls-3" cx="373" cy="179" r="75"/>
+    <circle id="Ellipse_1_copy_3" data-name="Ellipse 1 copy 3" class="cls-4" cx="227" cy="277" r="75"/>
+    <circle id="Ellipse_1_copy_4" data-name="Ellipse 1 copy 4" class="cls-5" cx="168" cy="440" r="75"/>
+    <circle id="Ellipse_1_copy_5" data-name="Ellipse 1 copy 5" class="cls-6" cx="227" cy="603" r="75"/>
+    <circle id="Ellipse_1_copy_6" data-name="Ellipse 1 copy 6" class="cls-7" cx="373" cy="701" r="75"/>
+    <circle id="Ellipse_1_copy_7" data-name="Ellipse 1 copy 7" class="cls-8" cx="549" cy="712" r="75"/>
+    <circle id="Ellipse_1_copy_8" data-name="Ellipse 1 copy 8" class="cls-9" cx="718" cy="669" r="75"/>
+  </g>
+  <g id="A">
+    <circle id="Ellipse_1_copy_9" data-name="Ellipse 1 copy 9" class="cls-10" cx="986" cy="701" r="75"/>
+    <circle id="Ellipse_1_copy_10" data-name="Ellipse 1 copy 10" class="cls-11" cx="1048" cy="519" r="75"/>
+    <circle id="Ellipse_1_copy_11" data-name="Ellipse 1 copy 11" class="cls-12" cx="1123" cy="352" r="75"/>
+    <circle id="Ellipse_1_copy_12" data-name="Ellipse 1 copy 12" class="cls-13" cx="1211" cy="179" r="75"/>
+    <circle id="Ellipse_1_copy_13" data-name="Ellipse 1 copy 13" class="cls-14" cx="1380" cy="179" r="75"/>
+    <circle id="Ellipse_1_copy_14" data-name="Ellipse 1 copy 14" class="cls-15" cx="1471" cy="352" r="75"/>
+    <circle id="Ellipse_1_copy_15" data-name="Ellipse 1 copy 15" class="cls-16" cx="1539" cy="519" r="75"/>
+    <circle id="Ellipse_1_copy_18" data-name="Ellipse 1 copy 18" class="cls-17" cx="1602" cy="701" r="75"/>
+    <circle id="Ellipse_1_copy_16" data-name="Ellipse 1 copy 16" class="cls-18" cx="1211" cy="525" r="75"/>
+    <circle id="Ellipse_1_copy_17" data-name="Ellipse 1 copy 17" class="cls-19" cx="1375" cy="525" r="75"/>
+  </g>
+  <g id="S">
+    <circle id="Ellipse_1_copy_19" data-name="Ellipse 1 copy 19" class="cls-20" cx="1870" cy="669" r="75"/>
+    <circle id="Ellipse_1_copy_20" data-name="Ellipse 1 copy 20" class="cls-21" cx="2039" cy="712" r="75"/>
+    <circle id="Ellipse_1_copy_21" data-name="Ellipse 1 copy 21" class="cls-22" cx="2224" cy="712" r="75"/>
+    <circle id="Ellipse_1_copy_22" data-name="Ellipse 1 copy 22" class="cls-23" cx="2400" cy="669" r="75"/>
+    <circle id="Ellipse_1_copy_23" data-name="Ellipse 1 copy 23" class="cls-24" cx="2400" cy="502" r="75"/>
+    <circle id="Ellipse_1_copy_24" data-name="Ellipse 1 copy 24" class="cls-25" cx="2224" cy="462" r="75"/>
+    <circle id="Ellipse_1_copy_25" data-name="Ellipse 1 copy 25" class="cls-26" cx="2039" cy="427" r="75"/>
+    <circle id="Ellipse_1_copy_26" data-name="Ellipse 1 copy 26" class="cls-27" cx="1870" cy="387" r="75"/>
+    <circle id="Ellipse_1_copy_27" data-name="Ellipse 1 copy 27" class="cls-28" cx="1870" cy="220" r="75"/>
+    <circle id="Ellipse_1_copy_28" data-name="Ellipse 1 copy 28" class="cls-29" cx="2039" cy="168" r="75"/>
+    <circle id="Ellipse_1_copy_29" data-name="Ellipse 1 copy 29" class="cls-30" cx="2224" cy="168" r="75"/>
+    <circle id="Ellipse_1_copy_30" data-name="Ellipse 1 copy 30" class="cls-31" cx="2393" cy="211" r="75"/>
+  </g>
+  <g id="I">
+    <circle id="Ellipse_1_copy_31" data-name="Ellipse 1 copy 31" class="cls-32" cx="2736" cy="179" r="75"/>
+    <circle id="Ellipse_1_copy_32" data-name="Ellipse 1 copy 32" class="cls-33" cx="2736" cy="352" r="75"/>
+    <circle id="Ellipse_1_copy_33" data-name="Ellipse 1 copy 33" class="cls-34" cx="2736" cy="525" r="75"/>
+    <circle id="Ellipse_1_copy_34" data-name="Ellipse 1 copy 34" class="cls-35" cx="2736" cy="701" r="75"/>
+  </g>
+  <g id="N">
+    <circle id="Ellipse_1_copy_35" data-name="Ellipse 1 copy 35" class="cls-36" cx="3072" cy="701" r="75"/>
+    <circle id="Ellipse_1_copy_36" data-name="Ellipse 1 copy 36" class="cls-37" cx="3072" cy="525" r="75"/>
+    <circle id="Ellipse_1_copy_37" data-name="Ellipse 1 copy 37" class="cls-38" cx="3072" cy="352" r="75"/>
+    <circle id="Ellipse_1_copy_38" data-name="Ellipse 1 copy 38" class="cls-39" cx="3072" cy="176" r="75"/>
+    <circle id="Ellipse_1_copy_39" data-name="Ellipse 1 copy 39" class="cls-40" cx="3231" cy="312" r="75"/>
+    <circle id="Ellipse_1_copy_40" data-name="Ellipse 1 copy 40" class="cls-41" cx="3348" cy="440" r="75"/>
+    <circle id="Ellipse_1_copy_41" data-name="Ellipse 1 copy 41" class="cls-42" cx="3463" cy="568" r="75"/>
+    <circle id="Ellipse_1_copy_42" data-name="Ellipse 1 copy 42" class="cls-43" cx="3619" cy="701" r="75"/>
+    <circle id="Ellipse_1_copy_43" data-name="Ellipse 1 copy 43" class="cls-44" cx="3626" cy="519" r="75"/>
+    <circle id="Ellipse_1_copy_44" data-name="Ellipse 1 copy 44" class="cls-45" cx="3624" cy="352" r="75"/>
+    <circle id="Ellipse_1_copy_45" data-name="Ellipse 1 copy 45" class="cls-46" cx="3626" cy="179" r="75"/>
+  </g>
+  <g id="O">
+    <circle id="Ellipse_1_copy_46" data-name="Ellipse 1 copy 46" class="cls-47" cx="3962" cy="263" r="75"/>
+    <circle id="Ellipse_1_copy_47" data-name="Ellipse 1 copy 47" class="cls-48" cx="4131" cy="168" r="75"/>
+    <circle id="Ellipse_1_copy_48" data-name="Ellipse 1 copy 48" class="cls-49" cx="4316" cy="168" r="75"/>
+    <circle id="Ellipse_1_copy_49" data-name="Ellipse 1 copy 49" class="cls-50" cx="4475" cy="263" r="75"/>
+    <circle id="Ellipse_1_copy_50" data-name="Ellipse 1 copy 50" class="cls-51" cx="4541" cy="440" r="75"/>
+    <circle id="Ellipse_1_copy_51" data-name="Ellipse 1 copy 51" class="cls-52" cx="4475" cy="612" r="75"/>
+    <circle id="Ellipse_1_copy_52" data-name="Ellipse 1 copy 52" class="cls-53" cx="4316" cy="712" r="75"/>
+    <circle id="Ellipse_1_copy_53" data-name="Ellipse 1 copy 53" class="cls-54" cx="4131" cy="712" r="75"/>
+    <circle id="Ellipse_1_copy_54" data-name="Ellipse 1 copy 54" class="cls-55" cx="3962" cy="612" r="75"/>
+    <circle id="Ellipse_1_copy_55" data-name="Ellipse 1 copy 55" class="cls-56" cx="3902" cy="438" r="75"/>
+  </g>
+</svg>

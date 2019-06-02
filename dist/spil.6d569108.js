@@ -10788,10 +10788,194 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var TweenMax = _TweenMaxBase.default;
 exports.default = exports.TweenMax = TweenMax;
 TweenMax._autoActivated = [_TimelineLite.default, _TimelineMax.default, _CSSPlugin.default, _AttrPlugin.default, _BezierPlugin.default, _RoundPropsPlugin.default, _DirectionalRotationPlugin.default, _EasePack.Back, _EasePack.Elastic, _EasePack.Bounce, _EasePack.RoughEase, _EasePack.SlowMo, _EasePack.SteppedEase, _EasePack.Circ, _EasePack.Expo, _EasePack.Sine, _EasePack.ExpoScaleEase];
-},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"spil.js":[function(require,module,exports) {
+},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js":[function(require,module,exports) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict'; // If obj.hasOwnProperty has been overridden, then calling
+// obj.hasOwnProperty(prop) will break.
+// See: https://github.com/joyent/node/issues/1707
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+module.exports = function (qs, sep, eq, options) {
+  sep = sep || '&';
+  eq = eq || '=';
+  var obj = {};
+
+  if (typeof qs !== 'string' || qs.length === 0) {
+    return obj;
+  }
+
+  var regexp = /\+/g;
+  qs = qs.split(sep);
+  var maxKeys = 1000;
+
+  if (options && typeof options.maxKeys === 'number') {
+    maxKeys = options.maxKeys;
+  }
+
+  var len = qs.length; // maxKeys <= 0 means that we should not limit keys count
+
+  if (maxKeys > 0 && len > maxKeys) {
+    len = maxKeys;
+  }
+
+  for (var i = 0; i < len; ++i) {
+    var x = qs[i].replace(regexp, '%20'),
+        idx = x.indexOf(eq),
+        kstr,
+        vstr,
+        k,
+        v;
+
+    if (idx >= 0) {
+      kstr = x.substr(0, idx);
+      vstr = x.substr(idx + 1);
+    } else {
+      kstr = x;
+      vstr = '';
+    }
+
+    k = decodeURIComponent(kstr);
+    v = decodeURIComponent(vstr);
+
+    if (!hasOwnProperty(obj, k)) {
+      obj[k] = v;
+    } else if (isArray(obj[k])) {
+      obj[k].push(v);
+    } else {
+      obj[k] = [obj[k], v];
+    }
+  }
+
+  return obj;
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js":[function(require,module,exports) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict';
+
+var stringifyPrimitive = function (v) {
+  switch (typeof v) {
+    case 'string':
+      return v;
+
+    case 'boolean':
+      return v ? 'true' : 'false';
+
+    case 'number':
+      return isFinite(v) ? v : '';
+
+    default:
+      return '';
+  }
+};
+
+module.exports = function (obj, sep, eq, name) {
+  sep = sep || '&';
+  eq = eq || '=';
+
+  if (obj === null) {
+    obj = undefined;
+  }
+
+  if (typeof obj === 'object') {
+    return map(objectKeys(obj), function (k) {
+      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+
+      if (isArray(obj[k])) {
+        return map(obj[k], function (v) {
+          return ks + encodeURIComponent(stringifyPrimitive(v));
+        }).join(sep);
+      } else {
+        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+      }
+    }).join(sep);
+  }
+
+  if (!name) return '';
+  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+function map(xs, f) {
+  if (xs.map) return xs.map(f);
+  var res = [];
+
+  for (var i = 0; i < xs.length; i++) {
+    res.push(f(xs[i], i));
+  }
+
+  return res;
+}
+
+var objectKeys = Object.keys || function (obj) {
+  var res = [];
+
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
+  }
+
+  return res;
+};
+},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js":[function(require,module,exports) {
+'use strict';
+
+exports.decode = exports.parse = require('./decode');
+exports.encode = exports.stringify = require('./encode');
+},{"./decode":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js","./encode":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js"}],"spil.js":[function(require,module,exports) {
 "use strict";
 
 var _TweenMax = _interopRequireDefault(require("gsap/TweenMax"));
+
+var _TweenLite = _interopRequireDefault(require("gsap/TweenLite"));
+
+var _querystring = require("querystring");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10814,13 +10998,16 @@ var wheel_5 = []; //init kalder på funktion wheelArrayMaker
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  document.querySelector("#myBtn").addEventListener("click", function () {
+    console.log("modal");
+    modalPopUp();
+  });
   document.querySelector("#startSpil").addEventListener("click", function () {
     console.log(saldo, sats);
     var satsInputValue = document.querySelector("#satsInput").value;
     sats = parseInt(satsInputValue, 10);
     saldo = saldo - sats;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",-DKK");
-    document.querySelector("#gevinstText").textContent = "0,- DKK";
     wheelArrayMaker();
   });
   document.querySelector("#autoPlay").addEventListener("click", function () {
@@ -10830,7 +11017,7 @@ function init() {
 }
 
 function loopTheLoop() {
-  setTimeout(loopTheLoop, 2000);
+  setTimeout(loopTheLoop, 4000);
   wheelArrayMaker();
 } //wheelArrayMaker tager og selektere et hjul fra 1 til 5, og skaber 20 ramdomized værdier som bliver skubbet ind i hvert hjul
 
@@ -10850,7 +11037,8 @@ function wheelArrayMaker() {
 
     for (counter = 1; counter < 21; counter++) {
       // imageValue tager og skaber et tal mellem 1 og 6
-      var imageValue = Math.floor(Math.random() * 6) + 1; //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
+      // let imageValue = Math.floor(Math.random() * 6) + 1;
+      var imageValue = 4; //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
       //dette gør vi fordi vores billeder har en værdi fra 1 - 6, så vi kan kun bruge heltal, for at "matche" dem
 
       var roundedImageValue = Math.round(imageValue); //wheelSelector er ligemeget eval, som tager en string og konventerer den til en variabel
@@ -10955,8 +11143,7 @@ function checkVictory() {
   if (resultsArray[0] == resultsArray[3] && resultsArray[3] == resultsArray[6] && resultsArray[6] == resultsArray[9] && resultsArray[9] == resultsArray[12]) {
     console.log("TOP LINE IS VALID");
     saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); // document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("TOP LINE IS INVALID");
   }
@@ -10964,8 +11151,7 @@ function checkVictory() {
   if (resultsArray[1] == resultsArray[4] && resultsArray[4] == resultsArray[7] && resultsArray[7] == resultsArray[10] && resultsArray[10] == resultsArray[13]) {
     console.log("MIDDLE LINE IS VALID");
     saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("MIDDLELINE IS INVALID");
   }
@@ -10973,8 +11159,7 @@ function checkVictory() {
   if (resultsArray[2] == resultsArray[5] && resultsArray[5] == resultsArray[8] && resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14]) {
     console.log("BOTTOM LINE IS VALID");
     saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
   } else {
     console.log("BOTTOM LINE IS INVALID");
   }
@@ -10982,8 +11167,7 @@ function checkVictory() {
   if (resultsArray[0] == resultsArray[1] && resultsArray[1] == resultsArray[2]) {
     console.log("COLUMN 1 IS VALID");
     saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
   } else {
     console.log("COLUMN 1 IS INVALID");
   }
@@ -10991,8 +11175,7 @@ function checkVictory() {
   if (resultsArray[3] == resultsArray[4] && resultsArray[4] == resultsArray[5]) {
     console.log("COLUMN 2 IS VALID");
     saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); // document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
   } else {
     console.log("COLUMN 2 IS INVALID");
   }
@@ -11000,8 +11183,7 @@ function checkVictory() {
   if (resultsArray[6] == resultsArray[7] && resultsArray[7] == resultsArray[8]) {
     console.log("COLUMN 3 IS VALID");
     saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
   } else {
     console.log("COLUMN 3 IS INVALID");
   }
@@ -11009,8 +11191,7 @@ function checkVictory() {
   if (resultsArray[9] == resultsArray[10] && resultsArray[10] == resultsArray[11]) {
     console.log("COLUMN 4 IS VALID");
     saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
   } else {
     console.log("COLUMN 4 IS INVALID");
   }
@@ -11018,10 +11199,13 @@ function checkVictory() {
   if (resultsArray[12] == resultsArray[13] && resultsArray[13] == resultsArray[14]) {
     console.log("COLUMN 3 IS VALID");
     saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 3, ",- DKK");
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
   } else {
     console.log("COLUMN 3 IS INVALID");
+  }
+
+  if (resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14] && resultsArray[8] == 4) {
+    modalPopUp();
   }
 
   resultsArray.length = 0;
@@ -11045,7 +11229,173 @@ function selectThree(array) {
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
-},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var planetClicked = true;
+
+function instanciateObjects(emitter) {
+  emitter.style.display = "block";
+  console.log(emitter); //prikkerne bliver sat i containeren, for at rykke eksplosionen
+
+  var container = document.createElement("div"); //konfiguration af prikker
+
+  var emitterSize = 300;
+  var dotQuantity = 100;
+  var dotSizeMax = 80;
+  var dotSizeMin = 20; //opsætning af container med styling
+
+  container.style.cssText = "position:absolute; left:-4vw; top:0; overflow:visible; z-index:5000; pointer-events:none;";
+  document.body.appendChild(container);
+
+  emitter.onclick = function () {
+    console.log("onlcil");
+    emitter.style.display = "none";
+
+    if (emitter.getAttribute("planetactive") === "planet1") {
+      console.log("PLANET 1");
+      document.querySelector("#text1").style.display = "block";
+    }
+
+    if (emitter.getAttribute("planetactive") === "planet2") {
+      console.log("PLANET 2");
+      document.querySelector("#text2").style.display = "block";
+    }
+
+    if (emitter.getAttribute("planetactive") === "planet3") {
+      console.log("PLANET3");
+      document.querySelector("#text3").style.display = "block";
+    }
+  }; //eksplosionen er en TimelineLite instance, og man kan play()/restart() anytime - dette sørger for at dens performance er mere solid (i stedet for at genskabe den hver gang)
+
+
+  console.log("FØR EKSPLOSION");
+  var explosion = createExplosion(container);
+  console.log("EFTER EKSPLOSION");
+
+  function createExplosion(container) {
+    console.log("BOOM");
+    var tl = new TimelineLite(),
+        angle,
+        length,
+        dot,
+        i,
+        size; //sskaber prikkerne
+
+    for (i = 0; i < dotQuantity; i++) {
+      dot = document.createElement("div");
+      dot.className = "dot";
+      size = getRandom(dotSizeMin, dotSizeMax);
+      container.appendChild(dot);
+      angle = Math.random() * Math.PI * 2; //random vinkel
+      //figure out the maximum distance from the center, factoring in the size of the dot (it must never go outside the circle), and then pick a random spot along that length where we'll plot the point.
+
+      length = Math.random() * (emitterSize / 2 - size / 2); //placerer prikken i et random spot i vores emitter (img) og sætter størrelsen
+
+      _TweenLite.default.set(dot, {
+        x: Math.cos(angle) * length,
+        y: Math.sin(angle) * length,
+        width: size,
+        height: size,
+        xPercent: 0,
+        yPercent: 0,
+        force3D: true
+      }); //animation
+
+
+      tl.to(dot, 1 + Math.random(), {
+        opacity: 0,
+        x: Math.cos(angle) * length * 6,
+        y: Math.sin(angle) * length * 6
+      }, 0);
+    }
+
+    return tl;
+  } //functionen sættes til et element, således at eksplosionens container bliver sat til elementets center og animation bliver spillet
+
+
+  function explode(element) {
+    var bounds = element.getBoundingClientRect();
+
+    _TweenLite.default.set(container, {
+      x: bounds.left + bounds.width / 2,
+      y: bounds.top + bounds.height / 2
+    });
+
+    explosion.restart();
+  }
+
+  function getRandom(min, max) {
+    return min + Math.random() * (max - min);
+  } //explode initially, and then whenever the user presses on the dot.
+
+
+  emitter.addEventListener("click", testMe, true);
+
+  function testMe() {
+    explode(emitter);
+    console.log("clicked Planet");
+    calcMinigameVictory(emitter);
+  }
+}
+
+function calcMinigameVictory(planet) {
+  var planetSelector = planet.getAttribute("planetactive");
+  var slicedPlanetSelector = planetSelector.slice(-1);
+  console.log(slicedPlanetSelector);
+  var stringSelector = (0, _querystring.stringify)(slicedPlanetSelector);
+  var victorytext = document.querySelector("#vicText".concat(stringSelector));
+  console.log(victorytext);
+  var minigameCalc = Math.floor(Math.random() * 100) + 1;
+  console.log(minigameCalc);
+
+  if (minigameCalc <= 10) {
+    console.log("<10");
+    victorytext.textContent = "DU VANDT DEN STORE GEVINST";
+  }
+
+  if (minigameCalc >= 10 && minigameCalc <= 25) {
+    console.log("10-25");
+    victorytext.textContent = "DU VANDT DEN MELLEM GEVINST";
+  }
+
+  if (minigameCalc >= 25 && minigameCalc <= 55) {
+    victorytext.textContent = "DU VANDT DEN LILLE GEVINST";
+    console.log("25-55");
+  }
+
+  if (minigameCalc >= 55 && minigameCalc <= 100) {
+    victorytext.textContent = "Du vandt ikk en skid";
+    console.log("55-100");
+  }
+}
+
+function modalPopUp() {
+  // When the user clicks on the button, open the modal
+  console.log("clicked");
+  modal.style.display = "block"; // When the user clicks on <span> (x), close the modal
+  // When the user clicks anywhere outside of the modal, close it
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+
+  var textArray = document.querySelectorAll(".text");
+  textArray.forEach(function (obj) {
+    obj.style.display = "none";
+  });
+  var planetCounter = 1;
+  var emitterArray = document.querySelectorAll(".img");
+  emitterArray.forEach(function (obj) {
+    obj.setAttribute("planetActive", "planet".concat(planetCounter));
+    planetCounter++;
+    console.log(obj);
+    instanciateObjects(obj);
+  });
+}
+},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","gsap/TweenLite":"node_modules/gsap/TweenLite.js","querystring":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -11073,7 +11423,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49478" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57120" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

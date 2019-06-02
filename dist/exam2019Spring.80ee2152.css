@@ -75,7 +75,20 @@ header {
   height: 80px;
   position: absolute;
   top: 140px;
-  left: 220px; }
+  left: 220px;
+  animation-name: scaleknap;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate; }
+
+@keyframes scaleknap {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.1); } }
+
+.spilNuKnap:hover {
+  cursor: pointer; }
 
 #containerIndhold {
   width: 100%; }

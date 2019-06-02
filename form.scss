@@ -111,6 +111,12 @@ input {
   width: 80%;
 }
 
+#formUserInfo {
+  height: 400px;
+  display: none;
+  width: 80%;
+}
+
 #nemID {
   display: none;
 }
@@ -205,7 +211,7 @@ input {
 
 @media screen and (min-width: 627px) {
   label p {
-    margin-left: 73px;
+    margin-left: 173px;
   }
 
   #formContainer {
@@ -246,7 +252,11 @@ input {
 
 @media screen and (min-width: 768px) {
   label p {
-    margin-left: 108px;
+    margin-left: 230px;
+  }
+
+  #formLogin {
+    margin-top: 200px;
   }
 
   #formUserBlock input {
@@ -264,34 +274,82 @@ input {
 
   #formUserBlock {
     margin-top: 100px;
-    height: 450px;
+    height: 310px;
   }
 
   #formUserInfo {
     margin-top: 100px;
-    height: 450px;
+    height: 310px;
   }
 
   #nemID {
     margin-top: 100px;
-    height: 450px;
+    height: 330px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   label p {
-    margin-left: 168px;
+    margin-left: 332px;
+  }
+
+  #formContainer {
+    width: 70%;
+  }
+
+  #formUserBlock {
+    width: 70%;
+  }
+  #formContainer #formUserInfo {
+    display: none;
+    width: 70%;
+  }
+
+  #nemID {
+    width: 68%;
   }
 }
 
 @media screen and (min-width: 1200px) {
   label p {
-    margin-left: 210px;
+    margin-left: 282px;
+  }
+
+  #formContainer {
+    width: 60%;
+  }
+
+  #formUserBlock {
+    width: 60%;
+  }
+  #formContainer #formUserInfo {
+    display: none;
+    width: 60%;
+  }
+
+  #nemID {
+    width: 58%;
   }
 }
 
 @media screen and (min-width: 1500px) {
   label p {
-    margin-left: 18.9vw;
+    margin-left: 298px;
+  }
+
+  #formContainer {
+    width: 50%;
+  }
+
+  #formUserBlock {
+    width: 50%;
+  }
+  #formContainer #formUserInfo {
+    display: none;
+    width: 50%;
+  }
+
+  #nemID {
+    width: 48%;
   }
 }

@@ -10788,194 +10788,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var TweenMax = _TweenMaxBase.default;
 exports.default = exports.TweenMax = TweenMax;
 TweenMax._autoActivated = [_TimelineLite.default, _TimelineMax.default, _CSSPlugin.default, _AttrPlugin.default, _BezierPlugin.default, _RoundPropsPlugin.default, _DirectionalRotationPlugin.default, _EasePack.Back, _EasePack.Elastic, _EasePack.Bounce, _EasePack.RoughEase, _EasePack.SlowMo, _EasePack.SteppedEase, _EasePack.Circ, _EasePack.Expo, _EasePack.Sine, _EasePack.ExpoScaleEase];
-},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js":[function(require,module,exports) {
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-'use strict'; // If obj.hasOwnProperty has been overridden, then calling
-// obj.hasOwnProperty(prop) will break.
-// See: https://github.com/joyent/node/issues/1707
-
-function hasOwnProperty(obj, prop) {
-  return Object.prototype.hasOwnProperty.call(obj, prop);
-}
-
-module.exports = function (qs, sep, eq, options) {
-  sep = sep || '&';
-  eq = eq || '=';
-  var obj = {};
-
-  if (typeof qs !== 'string' || qs.length === 0) {
-    return obj;
-  }
-
-  var regexp = /\+/g;
-  qs = qs.split(sep);
-  var maxKeys = 1000;
-
-  if (options && typeof options.maxKeys === 'number') {
-    maxKeys = options.maxKeys;
-  }
-
-  var len = qs.length; // maxKeys <= 0 means that we should not limit keys count
-
-  if (maxKeys > 0 && len > maxKeys) {
-    len = maxKeys;
-  }
-
-  for (var i = 0; i < len; ++i) {
-    var x = qs[i].replace(regexp, '%20'),
-        idx = x.indexOf(eq),
-        kstr,
-        vstr,
-        k,
-        v;
-
-    if (idx >= 0) {
-      kstr = x.substr(0, idx);
-      vstr = x.substr(idx + 1);
-    } else {
-      kstr = x;
-      vstr = '';
-    }
-
-    k = decodeURIComponent(kstr);
-    v = decodeURIComponent(vstr);
-
-    if (!hasOwnProperty(obj, k)) {
-      obj[k] = v;
-    } else if (isArray(obj[k])) {
-      obj[k].push(v);
-    } else {
-      obj[k] = [obj[k], v];
-    }
-  }
-
-  return obj;
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js":[function(require,module,exports) {
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-'use strict';
-
-var stringifyPrimitive = function (v) {
-  switch (typeof v) {
-    case 'string':
-      return v;
-
-    case 'boolean':
-      return v ? 'true' : 'false';
-
-    case 'number':
-      return isFinite(v) ? v : '';
-
-    default:
-      return '';
-  }
-};
-
-module.exports = function (obj, sep, eq, name) {
-  sep = sep || '&';
-  eq = eq || '=';
-
-  if (obj === null) {
-    obj = undefined;
-  }
-
-  if (typeof obj === 'object') {
-    return map(objectKeys(obj), function (k) {
-      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-
-      if (isArray(obj[k])) {
-        return map(obj[k], function (v) {
-          return ks + encodeURIComponent(stringifyPrimitive(v));
-        }).join(sep);
-      } else {
-        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-      }
-    }).join(sep);
-  }
-
-  if (!name) return '';
-  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
-};
-
-var isArray = Array.isArray || function (xs) {
-  return Object.prototype.toString.call(xs) === '[object Array]';
-};
-
-function map(xs, f) {
-  if (xs.map) return xs.map(f);
-  var res = [];
-
-  for (var i = 0; i < xs.length; i++) {
-    res.push(f(xs[i], i));
-  }
-
-  return res;
-}
-
-var objectKeys = Object.keys || function (obj) {
-  var res = [];
-
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
-  }
-
-  return res;
-};
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js":[function(require,module,exports) {
-'use strict';
-
-exports.decode = exports.parse = require('./decode');
-exports.encode = exports.stringify = require('./encode');
-},{"./decode":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js","./encode":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js"}],"spil.js":[function(require,module,exports) {
+},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"spil.js":[function(require,module,exports) {
 "use strict";
 
 var _TweenMax = _interopRequireDefault(require("gsap/TweenMax"));
 
 var _TweenLite = _interopRequireDefault(require("gsap/TweenLite"));
-
-var _querystring = require("querystring");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10998,10 +10816,6 @@ var wheel_5 = []; //init kalder på funktion wheelArrayMaker
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  document.querySelector("#myBtn").addEventListener("click", function () {
-    console.log("modal");
-    modalPopUp();
-  });
   document.querySelector("#startSpil").addEventListener("click", function () {
     console.log(saldo, sats);
     var satsInputValue = document.querySelector("#satsInput").value;
@@ -11024,6 +10838,7 @@ function loopTheLoop() {
 
 function wheelArrayMaker() {
   document.querySelector("#wheelArea").innerHTML = "";
+  document.querySelector("#gevinstText").textContent = "0,- DKK";
   wheel_1.length = 0;
   wheel_2.length = 0;
   wheel_3.length = 0;
@@ -11037,8 +10852,8 @@ function wheelArrayMaker() {
 
     for (counter = 1; counter < 21; counter++) {
       // imageValue tager og skaber et tal mellem 1 og 6
-      // let imageValue = Math.floor(Math.random() * 6) + 1;
-      var imageValue = 4; //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
+      var imageValue = Math.floor(Math.random() * 6) + 1; //let imageValue = 4;
+      //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
       //dette gør vi fordi vores billeder har en værdi fra 1 - 6, så vi kan kun bruge heltal, for at "matche" dem
 
       var roundedImageValue = Math.round(imageValue); //wheelSelector er ligemeget eval, som tager en string og konventerer den til en variabel
@@ -11139,73 +10954,250 @@ function animateWheels() {
 
 function checkVictory() {
   console.log(resultsArray);
+  resultsArray.forEach(function (value, index) {
+    if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6] && resultsArray[index] == 4) {
+      modalPopUp();
+    }
+  });
+  resultsArray.forEach(function (value, index) {
+    if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6]) {
+      console.log("3 PÅ RÆKKE", resultsArray[index]);
+
+      if (resultsArray[index] == 1) {
+        saldo = saldo + sats * 6;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      }
+
+      if (resultsArray[index] == 2 || resultsArray[index] == 5 || resultsArray[index] == 6) {
+        console.log("2,5,6");
+        saldo = saldo + sats * 2;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      }
+
+      if (resultsArray[index] == 3) {
+        saldo = saldo + sats * 1.5;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      }
+    }
+  });
+  resultsArray.forEach(function (value, index) {
+    if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6] && resultsArray[index + 6] == resultsArray[index + 9]) {
+      console.log("4 PÅ LINIE");
+
+      if (resultsArray[index] == 1) {
+        saldo = saldo + sats * 6;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      }
+
+      if (resultsArray[index] == 2 || resultsArray[index] == 5 || resultsArray[index] == 6) {
+        saldo = saldo + sats * 2;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      }
+
+      if (resultsArray[index] == 3) {
+        saldo = saldo + sats * 1.5;
+        document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+        document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      }
+    }
+  });
 
   if (resultsArray[0] == resultsArray[3] && resultsArray[3] == resultsArray[6] && resultsArray[6] == resultsArray[9] && resultsArray[9] == resultsArray[12]) {
     console.log("TOP LINE IS VALID");
     saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); // document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
   } else {
     console.log("TOP LINE IS INVALID");
   }
 
   if (resultsArray[1] == resultsArray[4] && resultsArray[4] == resultsArray[7] && resultsArray[7] == resultsArray[10] && resultsArray[10] == resultsArray[13]) {
     console.log("MIDDLE LINE IS VALID");
-    saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
+
+    if (resultsArray[1] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[1] == 2 || resultsArray[1] == 5 || resultsArray[1] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[1] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("MIDDLELINE IS INVALID");
   }
 
   if (resultsArray[2] == resultsArray[5] && resultsArray[5] == resultsArray[8] && resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14]) {
     console.log("BOTTOM LINE IS VALID");
-    saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
+
+    if (resultsArray[2] == 4) {
+      modalPopUp();
+    }
+
+    if (resultsArray[2] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[2] == 2 || resultsArray[2] == 5 || resultsArray[2] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[2] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("BOTTOM LINE IS INVALID");
   }
 
   if (resultsArray[0] == resultsArray[1] && resultsArray[1] == resultsArray[2]) {
     console.log("COLUMN 1 IS VALID");
-    saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+
+    if (resultsArray[0] == 4) {
+      modalPopUp();
+    }
+
+    if (resultsArray[0] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[0] == 2 || resultsArray[0] == 5 || resultsArray[0] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[0] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("COLUMN 1 IS INVALID");
   }
 
   if (resultsArray[3] == resultsArray[4] && resultsArray[4] == resultsArray[5]) {
     console.log("COLUMN 2 IS VALID");
-    saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); // document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+
+    if (resultsArray[3] == 4) {
+      modalPopUp();
+    }
+
+    if (resultsArray[3] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[3] == 2 || resultsArray[3] == 5 || resultsArray[3] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[3] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("COLUMN 2 IS INVALID");
   }
 
   if (resultsArray[6] == resultsArray[7] && resultsArray[7] == resultsArray[8]) {
     console.log("COLUMN 3 IS VALID");
-    saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+
+    if (resultsArray == 4) {
+      modalPopUp();
+    }
+
+    if (resultsArray[6] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[6] == 2 || resultsArray[6] == 5 || resultsArray[6] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[6] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("COLUMN 3 IS INVALID");
   }
 
   if (resultsArray[9] == resultsArray[10] && resultsArray[10] == resultsArray[11]) {
     console.log("COLUMN 4 IS VALID");
-    saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
+
+    if (resultsArray[9] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[9] == 2 || resultsArray[9] == 5 || resultsArray[9] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[9] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
   } else {
     console.log("COLUMN 4 IS INVALID");
   }
 
   if (resultsArray[12] == resultsArray[13] && resultsArray[13] == resultsArray[14]) {
-    console.log("COLUMN 3 IS VALID");
-    saldo = saldo + sats * 3;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK"); //  document.querySelector("#gevinstText").textContent = `${sats * 3},- DKK`;
-  } else {
-    console.log("COLUMN 3 IS INVALID");
-  }
+    console.log("COLUMN 5 IS VALID");
 
-  if (resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14] && resultsArray[8] == 4) {
-    modalPopUp();
+    if (resultsArray[12] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+    }
+
+    if (resultsArray[12] == 2 || resultsArray[12] == 5 || resultsArray[12] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+    }
+
+    if (resultsArray[12] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+    }
+  } else {
+    console.log("COLUMN 5 IS INVALID");
   }
 
   resultsArray.length = 0;
@@ -11231,7 +11223,6 @@ function selectThree(array) {
 }
 
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
 var planetClicked = true;
 
 function instanciateObjects(emitter) {
@@ -11343,8 +11334,7 @@ function calcMinigameVictory(planet) {
   var planetSelector = planet.getAttribute("planetactive");
   var slicedPlanetSelector = planetSelector.slice(-1);
   console.log(slicedPlanetSelector);
-  var stringSelector = (0, _querystring.stringify)(slicedPlanetSelector);
-  var victorytext = document.querySelector("#vicText".concat(stringSelector));
+  var victorytext = document.getElementById("vicTxt".concat(slicedPlanetSelector));
   console.log(victorytext);
   var minigameCalc = Math.floor(Math.random() * 100) + 1;
   console.log(minigameCalc);
@@ -11395,7 +11385,7 @@ function modalPopUp() {
     instanciateObjects(obj);
   });
 }
-},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","gsap/TweenLite":"node_modules/gsap/TweenLite.js","querystring":"../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","gsap/TweenLite":"node_modules/gsap/TweenLite.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -11423,7 +11413,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55344" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

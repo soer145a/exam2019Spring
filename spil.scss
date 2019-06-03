@@ -91,22 +91,57 @@ body {
 }
 
 #satsLabel {
+  color: white;
   position: absolute;
-  top: 6vw;
-  left: 2vw;
+  bottom: 2vw;
+  left: 32vw;
   z-index: 10;
+  h2 {
+    position: absolute;
+    top: 0vw;
+    left: 1vw;
+  }
+  input {
+    top: 3vw;
+    left: 1vw;
+    position: absolute;
+    width: 5vw;
+    transform: scale(1.1);
+  }
 }
 #saldoFelt {
+  color: white;
   position: absolute;
-  top: 10vw;
-  left: 2vw;
+  bottom: 2vw;
+  left: 18vw;
+  z-index: 10;
+  h2 {
+    position: absolute;
+    top: 0vw;
+    left: 1vw;
+  }
+  #saldoText {
+    position: absolute;
+    top: 2vw;
+    left: 1vw;
+  }
+}
+
+#gevinstBorder {
+  position: absolute;
+  width: 11vw;
+  height: 2vw;
+  bottom: 5vw;
+  right: 20vw;
   z-index: 10;
 }
-#gevinst {
-  position: absolute;
-  top: 14vw;
-  left: 2vw;
-  z-index: 10;
+#gevinst p {
+  color: white;
+  @extend .reset;
+  margin: 1vw;
+  transform: translate(3vw, -5.3vw) scale(1.5);
+
+  z-index: 11;
 }
 
 #wheelArea {

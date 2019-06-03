@@ -1,4 +1,4 @@
-.reset, body, #formContainer #formLogin #loginButtons #formUser p {
+.reset, body, #gevinst p, #formContainer #formLogin #loginButtons #formUser p {
   margin: 0;
   padding: 0;
 }
@@ -84,24 +84,61 @@ body {
 }
 
 #satsLabel {
+  color: white;
   position: absolute;
-  top: 6vw;
-  left: 2vw;
+  bottom: 2vw;
+  left: 32vw;
   z-index: 10;
+}
+
+#satsLabel h2 {
+  position: absolute;
+  top: 0vw;
+  left: 1vw;
+}
+
+#satsLabel input {
+  top: 3vw;
+  left: 1vw;
+  position: absolute;
+  width: 5vw;
+  transform: scale(1.1);
 }
 
 #saldoFelt {
+  color: white;
   position: absolute;
-  top: 10vw;
-  left: 2vw;
+  bottom: 2vw;
+  left: 18vw;
   z-index: 10;
 }
 
-#gevinst {
+#saldoFelt h2 {
   position: absolute;
-  top: 14vw;
-  left: 2vw;
+  top: 0vw;
+  left: 1vw;
+}
+
+#saldoFelt #saldoText {
+  position: absolute;
+  top: 2vw;
+  left: 1vw;
+}
+
+#gevinstBorder {
+  position: absolute;
+  width: 11vw;
+  height: 2vw;
+  bottom: 5vw;
+  right: 20vw;
   z-index: 10;
+}
+
+#gevinst p {
+  color: white;
+  margin: 1vw;
+  transform: translate(3vw, -5.3vw) scale(1.5);
+  z-index: 11;
 }
 
 #wheelArea {

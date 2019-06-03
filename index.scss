@@ -4,7 +4,6 @@ $casinoFarve: #a88952;
 
 body {
   overflow-x: hidden;
-
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,6 +84,13 @@ header {
   100% {
     transform: translateX(210px) translateY(30px);
   }
+}
+
+.rumRejsenSkilt img {
+  width: 140px;
+  position: absolute;
+  left: 210px;
+  top: 60px;
 }
 
 .spilNuKnap {

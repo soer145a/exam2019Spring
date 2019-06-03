@@ -502,6 +502,13 @@ header {
   }
 }
 
+.rumRejsenSkilt img {
+  width: 140px;
+  position: absolute;
+  left: 210px;
+  top: 60px;
+}
+
 .spilNuKnap {
   background-image: url(spilknap-03.svg);
   background-size: 100% 100%;

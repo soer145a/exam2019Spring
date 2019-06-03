@@ -26,16 +26,20 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   document.querySelector("#startSpil").addEventListener("click", () => {
-    console.log(saldo, sats);
     let satsInputValue = document.querySelector("#satsInput").value;
     sats = parseInt(satsInputValue, 10);
     saldo = saldo - sats;
     document.querySelector("#saldoText").textContent = `${saldo},-DKK`;
 
+    let startKnap = document.querySelector("#startSpil");
+    let startRotate = TweenMax.to(startKnap, 0.5, {
+      rotation: 360,
+      yoyo: true
+    });
+
     wheelArrayMaker();
   });
   document.querySelector("#autoPlay").addEventListener("click", () => {
-    console.log("autoplay START");
     loopTheLoop();
   });
 }
@@ -163,7 +167,7 @@ function animateWheels() {
   allWheels.forEach(wheel => {
     localCounter++;
     tweenDelayCounter = tweenDelayCounter + 0.5;
-    console.log(tweenDelayCounter);
+
     let tweenDistance = arrayPositionArray[localCounter] * 14.01;
     TweenMax.to(wheel, 0.5, {
       y: `-${tweenDistance}vw`,
@@ -173,7 +177,6 @@ function animateWheels() {
   setTimeout(checkVictory, 2500);
 }
 function checkVictory() {
-  console.log(resultsArray);
   resultsArray.forEach((value, index) => {
     if (
       resultsArray[index] == resultsArray[index + 3] &&
@@ -189,29 +192,30 @@ function checkVictory() {
       resultsArray[index] == resultsArray[index + 3] &&
       resultsArray[index + 3] == resultsArray[index + 6]
     ) {
-      console.log("3 PÅ RÆKKE", resultsArray[index]);
       if (resultsArray[index] == 1) {
         saldo = saldo + sats * 6;
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           6},- DKK`;
+        enLargeMyGevinst();
       }
       if (
         resultsArray[index] == 2 ||
         resultsArray[index] == 5 ||
         resultsArray[index] == 6
       ) {
-        console.log("2,5,6");
         saldo = saldo + sats * 2;
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           2},- DKK`;
+        enLargeMyGevinst();
       }
       if (resultsArray[index] == 3) {
         saldo = saldo + sats * 1.5;
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           1.5},- DKK`;
+        enLargeMyGevinst();
       }
     }
   });
@@ -221,12 +225,12 @@ function checkVictory() {
       resultsArray[index + 3] == resultsArray[index + 6] &&
       resultsArray[index + 6] == resultsArray[index + 9]
     ) {
-      console.log("4 PÅ LINIE");
       if (resultsArray[index] == 1) {
         saldo = saldo + sats * 6;
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           6},- DKK`;
+        enLargeMyGevinst();
       }
       if (
         resultsArray[index] == 2 ||
@@ -237,12 +241,14 @@ function checkVictory() {
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           2},- DKK`;
+        enLargeMyGevinst();
       }
       if (resultsArray[index] == 3) {
         saldo = saldo + sats * 1.5;
         document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
         document.querySelector("#gevinstText").textContent = `${sats *
           1.5},- DKK`;
+        enLargeMyGevinst();
       }
     }
   });
@@ -253,12 +259,26 @@ function checkVictory() {
     resultsArray[6] == resultsArray[9] &&
     resultsArray[9] == resultsArray[12]
   ) {
-    console.log("TOP LINE IS VALID");
-    saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
-    document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
+    if (resultsArray[0] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+      document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
+    }
+    if (resultsArray[0] == 2 || resultsArray[1] == 5 || resultsArray[1] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+      document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
+    }
+    if (resultsArray[0] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+      document.querySelector("#gevinstText").textContent = `${sats *
+        1.5},- DKK`;
+      enLargeMyGevinst();
+    }
   } else {
-    console.log("TOP LINE IS INVALID");
   }
   if (
     resultsArray[1] == resultsArray[4] &&
@@ -266,25 +286,26 @@ function checkVictory() {
     resultsArray[7] == resultsArray[10] &&
     resultsArray[10] == resultsArray[13]
   ) {
-    console.log("MIDDLE LINE IS VALID");
     if (resultsArray[1] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[1] == 2 || resultsArray[1] == 5 || resultsArray[1] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[1] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("MIDDLELINE IS INVALID");
   }
   if (
     resultsArray[2] == resultsArray[5] &&
@@ -292,7 +313,6 @@ function checkVictory() {
     resultsArray[8] == resultsArray[11] &&
     resultsArray[11] == resultsArray[14]
   ) {
-    console.log("BOTTOM LINE IS VALID");
     if (resultsArray[2] == 4) {
       modalPopUp();
     }
@@ -300,26 +320,27 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[2] == 2 || resultsArray[2] == 5 || resultsArray[2] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[2] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("BOTTOM LINE IS INVALID");
   }
   if (
     resultsArray[0] == resultsArray[1] &&
     resultsArray[1] == resultsArray[2]
   ) {
-    console.log("COLUMN 1 IS VALID");
     if (resultsArray[0] == 4) {
       modalPopUp();
     }
@@ -327,26 +348,27 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[0] == 2 || resultsArray[0] == 5 || resultsArray[0] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[0] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("COLUMN 1 IS INVALID");
   }
   if (
     resultsArray[3] == resultsArray[4] &&
     resultsArray[4] == resultsArray[5]
   ) {
-    console.log("COLUMN 2 IS VALID");
     if (resultsArray[3] == 4) {
       modalPopUp();
     }
@@ -354,26 +376,27 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[3] == 2 || resultsArray[3] == 5 || resultsArray[3] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[3] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("COLUMN 2 IS INVALID");
   }
   if (
     resultsArray[6] == resultsArray[7] &&
     resultsArray[7] == resultsArray[8]
   ) {
-    console.log("COLUMN 3 IS VALID");
     if (resultsArray == 4) {
       modalPopUp();
     }
@@ -381,54 +404,57 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[6] == 2 || resultsArray[6] == 5 || resultsArray[6] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[6] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("COLUMN 3 IS INVALID");
   }
   if (
     resultsArray[9] == resultsArray[10] &&
     resultsArray[10] == resultsArray[11]
   ) {
-    console.log("COLUMN 4 IS VALID");
     if (resultsArray[9] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[9] == 2 || resultsArray[9] == 5 || resultsArray[9] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[9] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("COLUMN 4 IS INVALID");
   }
   if (
     resultsArray[12] == resultsArray[13] &&
     resultsArray[13] == resultsArray[14]
   ) {
-    console.log("COLUMN 5 IS VALID");
     if (resultsArray[12] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 6},- DKK`;
+      enLargeMyGevinst();
     }
     if (
       resultsArray[12] == 2 ||
@@ -438,15 +464,16 @@ function checkVictory() {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats * 2},- DKK`;
+      enLargeMyGevinst();
     }
     if (resultsArray[12] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
       document.querySelector("#gevinstText").textContent = `${sats *
         1.5},- DKK`;
+      enLargeMyGevinst();
     }
   } else {
-    console.log("COLUMN 5 IS INVALID");
   }
 
   resultsArray.length = 0;
@@ -469,8 +496,6 @@ function selectThree(array) {
   let imageVariable_2 = array[arrayPosition + 1];
   let imageVariable_3 = array[arrayPosition + 2];
 
-  console.log(imageVariable_1, imageVariable_2, imageVariable_3);
-
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
@@ -484,7 +509,6 @@ let planetClicked = true;
 function instanciateObjects(emitter) {
   emitter.style.display = "block";
 
-  console.log(emitter);
   //prikkerne bliver sat i containeren, for at rykke eksplosionen
 
   let container = document.createElement("div");
@@ -502,32 +526,26 @@ function instanciateObjects(emitter) {
   document.body.appendChild(container);
 
   emitter.onclick = function() {
-    console.log("onlcil");
     emitter.style.display = "none";
 
     if (emitter.getAttribute("planetactive") === "planet1") {
-      console.log("PLANET 1");
       document.querySelector("#text1").style.display = "block";
     }
 
     if (emitter.getAttribute("planetactive") === "planet2") {
-      console.log("PLANET 2");
       document.querySelector("#text2").style.display = "block";
     }
 
     if (emitter.getAttribute("planetactive") === "planet3") {
-      console.log("PLANET3");
       document.querySelector("#text3").style.display = "block";
     }
   };
 
   //eksplosionen er en TimelineLite instance, og man kan play()/restart() anytime - dette sørger for at dens performance er mere solid (i stedet for at genskabe den hver gang)
-  console.log("FØR EKSPLOSION");
+
   let explosion = createExplosion(container);
-  console.log("EFTER EKSPLOSION");
 
   function createExplosion(container) {
-    console.log("BOOM");
     let tl = new TimelineLite(),
       angle,
       length,
@@ -597,44 +615,60 @@ function instanciateObjects(emitter) {
 
   function testMe() {
     explode(emitter);
-    console.log("clicked Planet");
+
     calcMinigameVictory(emitter);
   }
 }
 function calcMinigameVictory(planet) {
   let planetSelector = planet.getAttribute("planetactive");
   let slicedPlanetSelector = planetSelector.slice(-1);
-  console.log(slicedPlanetSelector);
 
   let victorytext = document.getElementById(`vicTxt${slicedPlanetSelector}`);
 
-  console.log(victorytext);
-
   let minigameCalc = Math.floor(Math.random() * 100) + 1;
-  console.log(minigameCalc);
 
   if (minigameCalc <= 10) {
-    console.log("<10");
     victorytext.textContent = "DU VANDT DEN STORE GEVINST";
+    saldo = saldo + sats * 10;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 10},- DKK`;
+    setTimeout(() => {
+      enLargeMyGevinst();
+      modal.style.display = "none";
+    }, 2000);
   }
   if (minigameCalc >= 10 && minigameCalc <= 25) {
-    console.log("10-25");
     victorytext.textContent = "DU VANDT DEN MELLEM GEVINST";
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
+    setTimeout(() => {
+      enLargeMyGevinst();
+      modal.style.display = "none";
+    }, 2000);
   }
   if (minigameCalc >= 25 && minigameCalc <= 55) {
+    saldo = saldo + sats * 3.5;
+    document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
+    document.querySelector("#gevinstText").textContent = `${sats * 3.5},- DKK`;
     victorytext.textContent = "DU VANDT DEN LILLE GEVINST";
-    console.log("25-55");
+
+    setTimeout(() => {
+      modal.style.display = "none";
+      enLargeMyGevinst();
+    }, 2000);
   }
   if (minigameCalc >= 55 && minigameCalc <= 100) {
     victorytext.textContent = "Du vandt ikk en skid";
-    console.log("55-100");
+
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 2000);
   }
 }
 
 function modalPopUp() {
   // When the user clicks on the button, open the modal
-
-  console.log("clicked");
 
   modal.style.display = "block";
 
@@ -659,7 +693,20 @@ function modalPopUp() {
     obj.setAttribute("planetActive", `planet${planetCounter}`);
     planetCounter++;
 
-    console.log(obj);
     instanciateObjects(obj);
   });
+}
+
+function enLargeMyGevinst() {
+  console.log("ENLARGE");
+  let gevinstTextBlock = document.querySelector("#gevinstBorder");
+  TweenMax.to(gevinstTextBlock, 0.8, {
+    scale: 2,
+    y: "-10vw",
+    onComplete: minimize()
+  });
+}
+function minimize() {
+  console.log("minify");
+  let gevinstTextBlock = document.querySelector("#gevinstBorder");
 }

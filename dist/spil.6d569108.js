@@ -10817,15 +10817,20 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   document.querySelector("#startSpil").addEventListener("click", function () {
-    console.log(saldo, sats);
     var satsInputValue = document.querySelector("#satsInput").value;
     sats = parseInt(satsInputValue, 10);
     saldo = saldo - sats;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",-DKK");
+    var startKnap = document.querySelector("#startSpil");
+
+    var startRotate = _TweenMax.default.to(startKnap, 0.5, {
+      rotation: 360,
+      yoyo: true
+    });
+
     wheelArrayMaker();
   });
   document.querySelector("#autoPlay").addEventListener("click", function () {
-    console.log("autoplay START");
     loopTheLoop();
   });
 }
@@ -10941,7 +10946,6 @@ function animateWheels() {
   allWheels.forEach(function (wheel) {
     localCounter++;
     tweenDelayCounter = tweenDelayCounter + 0.5;
-    console.log(tweenDelayCounter);
     var tweenDistance = arrayPositionArray[localCounter] * 14.01;
 
     _TweenMax.default.to(wheel, 0.5, {
@@ -10953,7 +10957,6 @@ function animateWheels() {
 }
 
 function checkVictory() {
-  console.log(resultsArray);
   resultsArray.forEach(function (value, index) {
     if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6] && resultsArray[index] == 4) {
       modalPopUp();
@@ -10961,88 +10964,100 @@ function checkVictory() {
   });
   resultsArray.forEach(function (value, index) {
     if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6]) {
-      console.log("3 PÅ RÆKKE", resultsArray[index]);
-
       if (resultsArray[index] == 1) {
         saldo = saldo + sats * 6;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+        enLargeMyGevinst();
       }
 
       if (resultsArray[index] == 2 || resultsArray[index] == 5 || resultsArray[index] == 6) {
-        console.log("2,5,6");
         saldo = saldo + sats * 2;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+        enLargeMyGevinst();
       }
 
       if (resultsArray[index] == 3) {
         saldo = saldo + sats * 1.5;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+        enLargeMyGevinst();
       }
     }
   });
   resultsArray.forEach(function (value, index) {
     if (resultsArray[index] == resultsArray[index + 3] && resultsArray[index + 3] == resultsArray[index + 6] && resultsArray[index + 6] == resultsArray[index + 9]) {
-      console.log("4 PÅ LINIE");
-
       if (resultsArray[index] == 1) {
         saldo = saldo + sats * 6;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+        enLargeMyGevinst();
       }
 
       if (resultsArray[index] == 2 || resultsArray[index] == 5 || resultsArray[index] == 6) {
         saldo = saldo + sats * 2;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+        enLargeMyGevinst();
       }
 
       if (resultsArray[index] == 3) {
         saldo = saldo + sats * 1.5;
         document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
         document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+        enLargeMyGevinst();
       }
     }
   });
 
   if (resultsArray[0] == resultsArray[3] && resultsArray[3] == resultsArray[6] && resultsArray[6] == resultsArray[9] && resultsArray[9] == resultsArray[12]) {
-    console.log("TOP LINE IS VALID");
-    saldo = saldo + sats * 5;
-    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
-    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
-  } else {
-    console.log("TOP LINE IS INVALID");
-  }
+    if (resultsArray[0] == 1) {
+      saldo = saldo + sats * 6;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
+    }
+
+    if (resultsArray[0] == 2 || resultsArray[1] == 5 || resultsArray[1] == 6) {
+      saldo = saldo + sats * 2;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
+    }
+
+    if (resultsArray[0] == 3) {
+      saldo = saldo + sats * 1.5;
+      document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+      document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
+    }
+  } else {}
 
   if (resultsArray[1] == resultsArray[4] && resultsArray[4] == resultsArray[7] && resultsArray[7] == resultsArray[10] && resultsArray[10] == resultsArray[13]) {
-    console.log("MIDDLE LINE IS VALID");
-
     if (resultsArray[1] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[1] == 2 || resultsArray[1] == 5 || resultsArray[1] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[1] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("MIDDLELINE IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[2] == resultsArray[5] && resultsArray[5] == resultsArray[8] && resultsArray[8] == resultsArray[11] && resultsArray[11] == resultsArray[14]) {
-    console.log("BOTTOM LINE IS VALID");
-
     if (resultsArray[2] == 4) {
       modalPopUp();
     }
@@ -11051,26 +11066,25 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[2] == 2 || resultsArray[2] == 5 || resultsArray[2] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[2] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("BOTTOM LINE IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[0] == resultsArray[1] && resultsArray[1] == resultsArray[2]) {
-    console.log("COLUMN 1 IS VALID");
-
     if (resultsArray[0] == 4) {
       modalPopUp();
     }
@@ -11079,26 +11093,25 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[0] == 2 || resultsArray[0] == 5 || resultsArray[0] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[0] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("COLUMN 1 IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[3] == resultsArray[4] && resultsArray[4] == resultsArray[5]) {
-    console.log("COLUMN 2 IS VALID");
-
     if (resultsArray[3] == 4) {
       modalPopUp();
     }
@@ -11107,26 +11120,25 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[3] == 2 || resultsArray[3] == 5 || resultsArray[3] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[3] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("COLUMN 2 IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[6] == resultsArray[7] && resultsArray[7] == resultsArray[8]) {
-    console.log("COLUMN 3 IS VALID");
-
     if (resultsArray == 4) {
       modalPopUp();
     }
@@ -11135,70 +11147,69 @@ function checkVictory() {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[6] == 2 || resultsArray[6] == 5 || resultsArray[6] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[6] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("COLUMN 3 IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[9] == resultsArray[10] && resultsArray[10] == resultsArray[11]) {
-    console.log("COLUMN 4 IS VALID");
-
     if (resultsArray[9] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[9] == 2 || resultsArray[9] == 5 || resultsArray[9] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[9] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("COLUMN 4 IS INVALID");
-  }
+  } else {}
 
   if (resultsArray[12] == resultsArray[13] && resultsArray[13] == resultsArray[14]) {
-    console.log("COLUMN 5 IS VALID");
-
     if (resultsArray[12] == 1) {
       saldo = saldo + sats * 6;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 6, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[12] == 2 || resultsArray[12] == 5 || resultsArray[12] == 6) {
       saldo = saldo + sats * 2;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 2, ",- DKK");
+      enLargeMyGevinst();
     }
 
     if (resultsArray[12] == 3) {
       saldo = saldo + sats * 1.5;
       document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
       document.querySelector("#gevinstText").textContent = "".concat(sats * 1.5, ",- DKK");
+      enLargeMyGevinst();
     }
-  } else {
-    console.log("COLUMN 5 IS INVALID");
-  }
+  } else {}
 
   resultsArray.length = 0;
 } // den får et array som parameter, og vælger hvilket tre af billedværdierne som skal vises til sidst
@@ -11217,7 +11228,6 @@ function selectThree(array) {
   var imageVariable_1 = array[arrayPosition];
   var imageVariable_2 = array[arrayPosition + 1];
   var imageVariable_3 = array[arrayPosition + 2];
-  console.log(imageVariable_1, imageVariable_2, imageVariable_3);
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
@@ -11226,8 +11236,7 @@ var modal = document.getElementById("myModal");
 var planetClicked = true;
 
 function instanciateObjects(emitter) {
-  emitter.style.display = "block";
-  console.log(emitter); //prikkerne bliver sat i containeren, for at rykke eksplosionen
+  emitter.style.display = "block"; //prikkerne bliver sat i containeren, for at rykke eksplosionen
 
   var container = document.createElement("div"); //konfiguration af prikker
 
@@ -11240,32 +11249,25 @@ function instanciateObjects(emitter) {
   document.body.appendChild(container);
 
   emitter.onclick = function () {
-    console.log("onlcil");
     emitter.style.display = "none";
 
     if (emitter.getAttribute("planetactive") === "planet1") {
-      console.log("PLANET 1");
       document.querySelector("#text1").style.display = "block";
     }
 
     if (emitter.getAttribute("planetactive") === "planet2") {
-      console.log("PLANET 2");
       document.querySelector("#text2").style.display = "block";
     }
 
     if (emitter.getAttribute("planetactive") === "planet3") {
-      console.log("PLANET3");
       document.querySelector("#text3").style.display = "block";
     }
   }; //eksplosionen er en TimelineLite instance, og man kan play()/restart() anytime - dette sørger for at dens performance er mere solid (i stedet for at genskabe den hver gang)
 
 
-  console.log("FØR EKSPLOSION");
   var explosion = createExplosion(container);
-  console.log("EFTER EKSPLOSION");
 
   function createExplosion(container) {
-    console.log("BOOM");
     var tl = new TimelineLite(),
         angle,
         length,
@@ -11325,7 +11327,6 @@ function instanciateObjects(emitter) {
 
   function testMe() {
     explode(emitter);
-    console.log("clicked Planet");
     calcMinigameVictory(emitter);
   }
 }
@@ -11333,36 +11334,52 @@ function instanciateObjects(emitter) {
 function calcMinigameVictory(planet) {
   var planetSelector = planet.getAttribute("planetactive");
   var slicedPlanetSelector = planetSelector.slice(-1);
-  console.log(slicedPlanetSelector);
   var victorytext = document.getElementById("vicTxt".concat(slicedPlanetSelector));
-  console.log(victorytext);
   var minigameCalc = Math.floor(Math.random() * 100) + 1;
-  console.log(minigameCalc);
 
   if (minigameCalc <= 10) {
-    console.log("<10");
     victorytext.textContent = "DU VANDT DEN STORE GEVINST";
+    saldo = saldo + sats * 10;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 10, ",- DKK");
+    setTimeout(function () {
+      enLargeMyGevinst();
+      modal.style.display = "none";
+    }, 2000);
   }
 
   if (minigameCalc >= 10 && minigameCalc <= 25) {
-    console.log("10-25");
     victorytext.textContent = "DU VANDT DEN MELLEM GEVINST";
+    saldo = saldo + sats * 5;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
+    setTimeout(function () {
+      enLargeMyGevinst();
+      modal.style.display = "none";
+    }, 2000);
   }
 
   if (minigameCalc >= 25 && minigameCalc <= 55) {
+    saldo = saldo + sats * 3.5;
+    document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
+    document.querySelector("#gevinstText").textContent = "".concat(sats * 3.5, ",- DKK");
     victorytext.textContent = "DU VANDT DEN LILLE GEVINST";
-    console.log("25-55");
+    setTimeout(function () {
+      modal.style.display = "none";
+      enLargeMyGevinst();
+    }, 2000);
   }
 
   if (minigameCalc >= 55 && minigameCalc <= 100) {
     victorytext.textContent = "Du vandt ikk en skid";
-    console.log("55-100");
+    setTimeout(function () {
+      modal.style.display = "none";
+    }, 2000);
   }
 }
 
 function modalPopUp() {
   // When the user clicks on the button, open the modal
-  console.log("clicked");
   modal.style.display = "block"; // When the user clicks on <span> (x), close the modal
   // When the user clicks anywhere outside of the modal, close it
 
@@ -11381,9 +11398,24 @@ function modalPopUp() {
   emitterArray.forEach(function (obj) {
     obj.setAttribute("planetActive", "planet".concat(planetCounter));
     planetCounter++;
-    console.log(obj);
     instanciateObjects(obj);
   });
+}
+
+function enLargeMyGevinst() {
+  console.log("ENLARGE");
+  var gevinstTextBlock = document.querySelector("#gevinstBorder");
+
+  _TweenMax.default.to(gevinstTextBlock, 0.8, {
+    scale: 2,
+    y: "-10vw",
+    onComplete: minimize()
+  });
+}
+
+function minimize() {
+  console.log("minify");
+  var gevinstTextBlock = document.querySelector("#gevinstBorder");
 }
 },{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","gsap/TweenLite":"node_modules/gsap/TweenLite.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

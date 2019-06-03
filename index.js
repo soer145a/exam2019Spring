@@ -8,5 +8,5 @@ function init() {
 }
 
 function klik() {
-  window.open("form.html");
+  window.open("spil.html");
 }

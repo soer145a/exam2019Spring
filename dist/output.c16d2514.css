@@ -442,12 +442,12 @@ header {
   margin: 0 auto;
 }
 
-.dsLogo img {
+.dsLogoMobil img {
   width: 35px;
   padding: 7px 10px 10px 20px;
 }
 
-.logoDesktop {
+.dsLogoDesktop {
   display: none;
 }
 
@@ -463,53 +463,66 @@ header {
   border: none;
   margin-left: 20px;
   font-family: "Lato", sans-serif;
-  color: white;
   font-size: 1.2em;
 }
 
+.logInd a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .kampangeBillede {
-  height: 200px;
+  height: 52vh;
   margin-bottom: 4vw;
-  background-image: url(backgroundDesktop.0acea093.svg);
+  background-image: url(background.18b82d1f.svg);
   background-size: 100%;
+  margin-top: -2px;
 }
 
 .alien {
   background-image: url(flyvendealien-01.26d210b8.svg);
   background-size: 100% 100%;
-  width: 120px;
-  height: 120px;
+  width: 50vw;
+  height: 15vh;
   position: absolute;
-  top: 50px;
-  left: -170px;
+  top: 5.5vh;
+  left: -55vw;
   animation-name: alien;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-out;
   animation-fill-mode: forwards;
   animation-direction: alternate;
 }
 
 @keyframes alien {
   0% {
-    transform: translateX(0px) translateY(-60px);
+    transform: translateX(0vw) translateY(-5vh);
   }
   50% {
-    transform: translateY(20px) translateX(120px);
+    transform: translateY(2vh) translateX(12.3vw);
   }
   100% {
-    transform: translateX(210px) translateY(30px);
+    transform: translateX(55vw) translateY(4vh);
   }
+}
+
+.rumRejsenSkilt img {
+  width: 37vw;
+  position: absolute;
+  left: 56vw;
+  top: 18vw;
 }
 
 .spilNuKnap {
   background-image: url(spilknap-03.e3a217e4.svg);
   background-size: 100% 100%;
-  width: 100px;
-  height: 80px;
+  width: 27vw;
+  height: 10vh;
   position: absolute;
-  top: 140px;
-  left: 220px;
+  top: 40vw;
+  left: 58vw;
   animation-name: scaleknap;
   animation-iteration-count: infinite;
   animation-duration: 1s;
@@ -530,7 +543,7 @@ header {
 }
 
 #containerIndhold {
-  width: 100%;
+  margin-top: -250px;
 }
 
 .textKampange {
@@ -584,6 +597,22 @@ footer {
   padding-top: 2vw;
 }
 
+footer p {
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+footer a {
+  color: white;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #544529;
+}
+
 .textContainer {
   width: 90%;
   margin: 0 auto;
@@ -625,14 +654,24 @@ footer {
 }
 
 .kontaktKundeservice p {
-  margin-block-start: 0;
+  margin-block-start: 0px;
+  margin-block-end: 10px;
 }
 
 .kundeserviceKnap {
   height: 40px;
   font-family: "Lato", sans-serif;
+  font-weight: 800;
   background-color: white;
   border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.kundeserviceKnap a {
+  color: black;
 }
 
 #footerSponsor {
@@ -672,8 +711,21 @@ footer {
 }
 
 @media screen and (min-width: 627px) {
+  .casinoLogo {
+    text-align: center;
+  }
+  .logInd {
+    width: 100%;
+  }
   .kampangeBillede {
     height: 350px;
+  }
+  .alien {
+    height: 25vh;
+  }
+  .rumRejsenSkilt {
+    top: -5vw;
+    position: absolute;
   }
   .ikoner {
     grid-template-columns: 1fr 1fr 1fr;
@@ -684,8 +736,22 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+  .logoDesktop {
+    width: 150px;
+    padding: 10px 10px 10px 20px;
+  }
+  .dsLogoMobil {
+    display: none;
+  }
+  .dsLogoDesktop {
+    display: block;
+  }
   .kampangeBillede {
     height: 400px;
+  }
+  .alien {
+    height: 30vh;
+    top: 10vw;
   }
   .ikon {
     width: 150px;
@@ -725,11 +791,27 @@ footer {
 }
 
 @media screen and (min-width: 1024px) {
+  .kampangeBillede {
+    height: 570px;
+  }
+  .alien {
+    height: 40vh;
+    top: 10vw;
+  }
   .textKampange {
-    width: 80%;
+    width: 70%;
+  }
+  .textKampange h1 {
+    text-align: center;
+  }
+  .textKampange p {
+    width: 76.7%;
+    margin: 0 auto;
+    font-size: 1em;
+    line-height: 23px;
   }
   .ikoner {
-    width: 80%;
+    width: 55%;
     grid-gap: 25px;
   }
   .ikon {
@@ -737,10 +819,10 @@ footer {
     height: 18vw;
   }
   .videoContainer {
-    width: 80%;
+    width: 50%;
   }
   .textContainer {
-    width: 80%;
+    width: 70%;
   }
   .sponsorbar {
     width: 60%;

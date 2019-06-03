@@ -36,14 +36,19 @@ header {
   border: none;
   margin-left: 20px;
   font-family: "Lato", sans-serif;
-  color: white;
   font-size: 1.2em; }
 
+.logInd a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none; }
+
 .kampangeBillede {
-  height: 23vh;
+  height: 52vh;
   margin-bottom: 4vw;
-  background-image: url(backgroundDesktop.0acea093.svg);
-  background-size: 100%; }
+  background-image: url(background.18b82d1f.svg);
+  background-size: 100%;
+  margin-top: -2px; }
 
 .alien {
   background-image: url(flyvendealien-01.26d210b8.svg);
@@ -97,7 +102,7 @@ header {
   cursor: pointer; }
 
 #containerIndhold {
-  width: 100%; }
+  margin-top: -250px; }
 
 .textKampange {
   width: 90%;
@@ -141,6 +146,19 @@ footer {
   background-color: #a88952;
   padding-top: 2vw; }
 
+footer p {
+  color: white;
+  font-family: "Lato", sans-serif; }
+
+footer a {
+  color: white;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  text-decoration: none; }
+
+footer a:hover {
+  color: #544529; }
+
 .textContainer {
   width: 90%;
   margin: 0 auto;
@@ -176,13 +194,22 @@ footer {
   text-align: center; }
 
 .kontaktKundeservice p {
-  margin-block-start: 0; }
+  margin-block-start: 0px;
+  margin-block-end: 10px; }
 
 .kundeserviceKnap {
   height: 40px;
   font-family: "Lato", sans-serif;
+  font-weight: 800;
   background-color: white;
-  border: none; }
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px; }
+
+.kundeserviceKnap a {
+  color: black; }
 
 #footerSponsor {
   background-color: white; }
@@ -218,8 +245,7 @@ footer {
   .casinoLogo {
     text-align: center; }
   .logInd {
-    width: 100%;
-    margin-left: 8vw; }
+    width: 100%; }
   .kampangeBillede {
     height: 350px; }
   .alien {

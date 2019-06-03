@@ -463,15 +463,21 @@ header {
   border: none;
   margin-left: 20px;
   font-family: "Lato", sans-serif;
-  color: white;
   font-size: 1.2em;
 }
 
+.logInd a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .kampangeBillede {
-  height: 23vh;
+  height: 52vh;
   margin-bottom: 4vw;
-  background-image: url(backgroundDesktop.svg);
+  background-image: url(background.svg);
   background-size: 100%;
+  margin-top: -2px;
 }
 
 .alien {
@@ -537,7 +543,7 @@ header {
 }
 
 #containerIndhold {
-  width: 100%;
+  margin-top: -250px;
 }
 
 .textKampange {
@@ -591,6 +597,22 @@ footer {
   padding-top: 2vw;
 }
 
+footer p {
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+footer a {
+  color: white;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #544529;
+}
+
 .textContainer {
   width: 90%;
   margin: 0 auto;
@@ -632,14 +654,24 @@ footer {
 }
 
 .kontaktKundeservice p {
-  margin-block-start: 0;
+  margin-block-start: 0px;
+  margin-block-end: 10px;
 }
 
 .kundeserviceKnap {
   height: 40px;
   font-family: "Lato", sans-serif;
+  font-weight: 800;
   background-color: white;
   border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.kundeserviceKnap a {
+  color: black;
 }
 
 #footerSponsor {
@@ -684,7 +716,6 @@ footer {
   }
   .logInd {
     width: 100%;
-    margin-left: 8vw;
   }
   .kampangeBillede {
     height: 350px;

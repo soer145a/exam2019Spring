@@ -41,14 +41,22 @@ header {
 .logInd a {
   color: white;
   cursor: pointer;
-  text-decoration: none; }
+  text-decoration: none;
+  float: right; }
+
+.logInd a:hover {
+  color: #544529; }
 
 .kampangeBillede {
-  height: 52vh;
   margin-bottom: 4vw;
-  background-image: url(background.18b82d1f.svg);
-  background-size: 100%;
   margin-top: -2px; }
+
+.baggrund img {
+  width: 100%;
+  margin-top: -10px; }
+
+.baggrundUnivers img {
+  width: 100%; }
 
 .alien {
   background-image: url(flyvendealien-01.26d210b8.svg);
@@ -102,7 +110,7 @@ header {
   cursor: pointer; }
 
 #containerIndhold {
-  margin-top: -250px; }
+  margin-top: -290px; }
 
 .textKampange {
   width: 90%;
@@ -245,9 +253,9 @@ footer a:hover {
   .casinoLogo {
     text-align: center; }
   .logInd {
-    width: 100%; }
-  .kampangeBillede {
-    height: 350px; }
+    width: 90%; }
+  #containerIndhold {
+    margin-top: -480px; }
   .alien {
     height: 25vh; }
   .rumRejsenSkilt {
@@ -267,7 +275,9 @@ footer a:hover {
   .dsLogoDesktop {
     display: block; }
   .kampangeBillede {
-    height: 400px; }
+    height: 975px; }
+  #containerIndhold {
+    margin-top: -600px; }
   .alien {
     height: 30vh;
     top: 10vw; }
@@ -296,34 +306,35 @@ footer a:hover {
     grid-column-end: 5;
     grid-row-start: 1;
     text-align: left; }
+  .kundeserviceKnap {
+    padding: 5px; }
   .footerLogo {
     margin-left: 0px; } }
 
 @media screen and (min-width: 1024px) {
   .kampangeBillede {
-    height: 570px; }
+    height: 1290px; }
+  #containerIndhold {
+    margin-top: -780px; }
   .alien {
     height: 40vh;
     top: 10vw; }
   .textKampange {
-    width: 70%; }
-  .textKampange h1 {
-    text-align: center; }
+    width: 65%; }
   .textKampange p {
-    width: 76.7%;
-    margin: 0 auto;
+    width: 100%;
     font-size: 1em;
     line-height: 23px; }
   .ikoner {
-    width: 55%;
+    width: 65%;
     grid-gap: 25px; }
   .ikon {
     width: 18vw;
     height: 18vw; }
   .videoContainer {
-    width: 50%; }
+    width: 65%; }
   .textContainer {
-    width: 70%; }
+    width: 90%; }
   .sponsorbar {
     width: 60%; } }
 

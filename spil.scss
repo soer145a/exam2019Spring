@@ -220,6 +220,37 @@ body {
   position: absolute;
   z-index: 10;
 }
-.victoryText {
-  color: white;
+
+.text {
+  transform: translateY(4vw);
+  width: 10vw;
+  height: 3vw;
+
+  .victoryText {
+    text-align: center;
+    margin-top: 3vw;
+  }
+  #modalGevinst2,
+  #modalGevinst1,
+  #modalGevinst3 {
+    text-align: center;
+    margin-top: 0vw;
+    font-size: 2em;
+  }
+}
+.storGevinst {
+  background-color: #f9a602;
+  color: black;
+}
+.mellemGevinst {
+  background-color: #c0c0c0;
+  color: black;
+}
+.lilleGevinst {
+  background-color: #cd7f32;
+  color: black;
+}
+.nitte {
+  color: black;
+  background-color: white;
 }

@@ -33,8 +33,7 @@ function init() {
 
     let startKnap = document.querySelector("#startSpil");
     let startRotate = TweenMax.to(startKnap, 0.5, {
-      rotation: 360,
-      yoyo: true
+      rotation: 360
     });
 
     wheelArrayMaker();
@@ -52,6 +51,7 @@ function loopTheLoop() {
 //wheelArrayMaker tager og selektere et hjul fra 1 til 5, og skaber 20 ramdomized værdier som bliver skubbet ind i hvert hjul
 
 function wheelArrayMaker() {
+  document.querySelector("#startSpil").removeAttribute("styles");
   document.querySelector("#wheelArea").innerHTML = "";
   document.querySelector("#gevinstText").textContent = "0,- DKK";
   wheel_1.length = 0;
@@ -72,7 +72,7 @@ function wheelArrayMaker() {
     for (counter = 1; counter < 21; counter++) {
       // imageValue tager og skaber et tal mellem 1 og 6
 
-      let imageValue = Math.floor(Math.random() * 6) + 1;
+      let imageValue = Math.floor(Math.random() * 4) + 1;
       //let imageValue = 4;
 
       //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
@@ -496,6 +496,8 @@ function selectThree(array) {
   let imageVariable_2 = array[arrayPosition + 1];
   let imageVariable_3 = array[arrayPosition + 2];
 
+  console.log(imageVariable_1, imageVariable_2, imageVariable_3);
+
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
@@ -622,32 +624,43 @@ function instanciateObjects(emitter) {
 function calcMinigameVictory(planet) {
   let planetSelector = planet.getAttribute("planetactive");
   let slicedPlanetSelector = planetSelector.slice(-1);
-
+  let selectedPlanets = document.querySelectorAll(".text");
   let victorytext = document.getElementById(`vicTxt${slicedPlanetSelector}`);
+  let modalGevinstText = document.getElementById(
+    `modalGevinst${slicedPlanetSelector}`
+  );
+  console.log(modalGevinstText);
 
   let minigameCalc = Math.floor(Math.random() * 100) + 1;
 
   if (minigameCalc <= 10) {
     victorytext.textContent = "DU VANDT DEN STORE GEVINST";
+    victorytext.parentElement.classList.add("storGevinst");
+    modalGevinstText.textContent = `${sats * 10},- DKK`;
     saldo = saldo + sats * 10;
     document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
     document.querySelector("#gevinstText").textContent = `${sats * 10},- DKK`;
     setTimeout(() => {
       enLargeMyGevinst();
       modal.style.display = "none";
-    }, 2000);
+    }, 3000000);
   }
   if (minigameCalc >= 10 && minigameCalc <= 25) {
+    victorytext.parentElement.classList.add("mellemGevinst");
     victorytext.textContent = "DU VANDT DEN MELLEM GEVINST";
+    modalGevinstText.textContent = `${sats * 5},- DKK`;
     saldo = saldo + sats * 5;
     document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
     document.querySelector("#gevinstText").textContent = `${sats * 5},- DKK`;
     setTimeout(() => {
       enLargeMyGevinst();
       modal.style.display = "none";
-    }, 2000);
+    }, 3000);
   }
   if (minigameCalc >= 25 && minigameCalc <= 55) {
+    victorytext.parentElement.classList.add("lilleGevinst");
+    modalGevinstText.textContent = `${sats * 3.5},- DKK`;
+
     saldo = saldo + sats * 3.5;
     document.querySelector("#saldoText").textContent = `${saldo},- DKK`;
     document.querySelector("#gevinstText").textContent = `${sats * 3.5},- DKK`;
@@ -656,14 +669,16 @@ function calcMinigameVictory(planet) {
     setTimeout(() => {
       modal.style.display = "none";
       enLargeMyGevinst();
-    }, 2000);
+    }, 3000);
   }
   if (minigameCalc >= 55 && minigameCalc <= 100) {
-    victorytext.textContent = "Du vandt ikk en skid";
+    victorytext.parentElement.classList.add("nitte");
+    victorytext.textContent = "Du vandt ikke noget";
+    modalGevinstText.textContent = ``;
 
     setTimeout(() => {
       modal.style.display = "none";
-    }, 2000);
+    }, 3000);
   }
 }
 
@@ -700,13 +715,17 @@ function modalPopUp() {
 function enLargeMyGevinst() {
   console.log("ENLARGE");
   let gevinstTextBlock = document.querySelector("#gevinstBorder");
-  TweenMax.to(gevinstTextBlock, 0.8, {
+  /*  TweenMax.to(gevinstTextBlock, 0.8, {
     scale: 2,
     y: "-10vw",
     onComplete: minimize()
-  });
+  }); */
 }
 function minimize() {
   console.log("minify");
   let gevinstTextBlock = document.querySelector("#gevinstBorder");
+  TweenMax.to(gevinstTextBlock, 0.8, {
+    scale: 1,
+    y: "10vw"
+  });
 }

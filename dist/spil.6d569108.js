@@ -10824,8 +10824,7 @@ function init() {
     var startKnap = document.querySelector("#startSpil");
 
     var startRotate = _TweenMax.default.to(startKnap, 0.5, {
-      rotation: 360,
-      yoyo: true
+      rotation: 360
     });
 
     wheelArrayMaker();
@@ -10842,6 +10841,7 @@ function loopTheLoop() {
 
 
 function wheelArrayMaker() {
+  document.querySelector("#startSpil").removeAttribute("styles");
   document.querySelector("#wheelArea").innerHTML = "";
   document.querySelector("#gevinstText").textContent = "0,- DKK";
   wheel_1.length = 0;
@@ -10857,7 +10857,7 @@ function wheelArrayMaker() {
 
     for (counter = 1; counter < 21; counter++) {
       // imageValue tager og skaber et tal mellem 1 og 6
-      var imageValue = Math.floor(Math.random() * 6) + 1; //let imageValue = 4;
+      var imageValue = Math.floor(Math.random() * 4) + 1; //let imageValue = 4;
       //roundedImageValue tager den random værdi (som f.eks. kunne være 4.5) og runder den enten op og ned til et heltal
       //dette gør vi fordi vores billeder har en værdi fra 1 - 6, så vi kan kun bruge heltal, for at "matche" dem
 
@@ -11228,6 +11228,7 @@ function selectThree(array) {
   var imageVariable_1 = array[arrayPosition];
   var imageVariable_2 = array[arrayPosition + 1];
   var imageVariable_3 = array[arrayPosition + 2];
+  console.log(imageVariable_1, imageVariable_2, imageVariable_3);
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
@@ -11334,32 +11335,41 @@ function instanciateObjects(emitter) {
 function calcMinigameVictory(planet) {
   var planetSelector = planet.getAttribute("planetactive");
   var slicedPlanetSelector = planetSelector.slice(-1);
+  var selectedPlanets = document.querySelectorAll(".text");
   var victorytext = document.getElementById("vicTxt".concat(slicedPlanetSelector));
+  var modalGevinstText = document.getElementById("modalGevinst".concat(slicedPlanetSelector));
+  console.log(modalGevinstText);
   var minigameCalc = Math.floor(Math.random() * 100) + 1;
 
   if (minigameCalc <= 10) {
     victorytext.textContent = "DU VANDT DEN STORE GEVINST";
+    victorytext.parentElement.classList.add("storGevinst");
+    modalGevinstText.textContent = "".concat(sats * 10, ",- DKK");
     saldo = saldo + sats * 10;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
     document.querySelector("#gevinstText").textContent = "".concat(sats * 10, ",- DKK");
     setTimeout(function () {
       enLargeMyGevinst();
       modal.style.display = "none";
-    }, 2000);
+    }, 3000000);
   }
 
   if (minigameCalc >= 10 && minigameCalc <= 25) {
+    victorytext.parentElement.classList.add("mellemGevinst");
     victorytext.textContent = "DU VANDT DEN MELLEM GEVINST";
+    modalGevinstText.textContent = "".concat(sats * 5, ",- DKK");
     saldo = saldo + sats * 5;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
     document.querySelector("#gevinstText").textContent = "".concat(sats * 5, ",- DKK");
     setTimeout(function () {
       enLargeMyGevinst();
       modal.style.display = "none";
-    }, 2000);
+    }, 3000);
   }
 
   if (minigameCalc >= 25 && minigameCalc <= 55) {
+    victorytext.parentElement.classList.add("lilleGevinst");
+    modalGevinstText.textContent = "".concat(sats * 3.5, ",- DKK");
     saldo = saldo + sats * 3.5;
     document.querySelector("#saldoText").textContent = "".concat(saldo, ",- DKK");
     document.querySelector("#gevinstText").textContent = "".concat(sats * 3.5, ",- DKK");
@@ -11367,14 +11377,16 @@ function calcMinigameVictory(planet) {
     setTimeout(function () {
       modal.style.display = "none";
       enLargeMyGevinst();
-    }, 2000);
+    }, 3000);
   }
 
   if (minigameCalc >= 55 && minigameCalc <= 100) {
-    victorytext.textContent = "Du vandt ikk en skid";
+    victorytext.parentElement.classList.add("nitte");
+    victorytext.textContent = "Du vandt ikke noget";
+    modalGevinstText.textContent = "";
     setTimeout(function () {
       modal.style.display = "none";
-    }, 2000);
+    }, 3000);
   }
 }
 
@@ -11405,17 +11417,21 @@ function modalPopUp() {
 function enLargeMyGevinst() {
   console.log("ENLARGE");
   var gevinstTextBlock = document.querySelector("#gevinstBorder");
-
-  _TweenMax.default.to(gevinstTextBlock, 0.8, {
+  /*  TweenMax.to(gevinstTextBlock, 0.8, {
     scale: 2,
     y: "-10vw",
     onComplete: minimize()
-  });
+  }); */
 }
 
 function minimize() {
   console.log("minify");
   var gevinstTextBlock = document.querySelector("#gevinstBorder");
+
+  _TweenMax.default.to(gevinstTextBlock, 0.8, {
+    scale: 1,
+    y: "10vw"
+  });
 }
 },{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","gsap/TweenLite":"node_modules/gsap/TweenLite.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -11445,7 +11461,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54014" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

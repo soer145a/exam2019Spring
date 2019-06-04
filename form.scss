@@ -12,7 +12,7 @@ body {
   box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.75);
   border-radius: 7.5px;
 }
-
+/* 
 #formLogin {
   display: block;
   width: 60%;
@@ -21,6 +21,29 @@ body {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 30px;
+
+} */
+
+#formLogin {
+  height: 400px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 1fr 1fr;
+}
+
+#loginInfo {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+#loginButtons {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  margin-top: 0px;
 }
 
 label p {

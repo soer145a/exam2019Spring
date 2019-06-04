@@ -51,6 +51,9 @@ header {
   margin-bottom: 4vw;
   margin-top: -2px; }
 
+.baggrund {
+  width: 100%; }
+
 .baggrund img {
   width: 100%;
   margin-top: -10px; }

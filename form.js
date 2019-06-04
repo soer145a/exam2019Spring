@@ -1,7 +1,5 @@
 "use strict";
 
-import { Ease } from "gsap";
-
 window.addEventListener("DOMContentLoaded", init);
 let userArray = [];
 const front = document.querySelector("#formLogin");
@@ -47,7 +45,7 @@ function checkLoginStatus() {
   userArray.forEach(user => {
     if (formUserName == user.username) {
       if (user.password == formPassword) {
-        document.querySelector("body").style.backgroundColor = "blue";
+        window.location.replace("http://localhost:1234/spil.html");
       }
     }
   });
@@ -78,14 +76,13 @@ function displayFirstForm() {
 }
 function saveFirstSetOfData(obj) {
   console.log("SAVE FIRST SET OF DATA");
-
+  let usernameForm = document.querySelector("#userName");
   let userCounter = 0;
   userArray.forEach(user => {
-    console.log(user.username, obj.username);
-    if (user.username == obj.username) {
+    console.log(user.username, usernameForm.value);
+    if (user.username == usernameForm.value) {
       alert("OPTAGET BRUGERNAVN");
     } else {
-      let usernameForm = document.querySelector("#formUsername");
       console.log(usernameForm.checkValidity());
       if (usernameForm.checkValidity() != true) {
         alert("Indtast gyldigt brugernavn");
@@ -131,7 +128,7 @@ function saveFirstSetOfData(obj) {
   }
 }
 function displaySecondForm(obj) {
-  console.log("DISPLAY2");
+  console.log(obj);
   userData.style.display = "none";
   userInfo.style.display = "block";
   document
@@ -145,31 +142,36 @@ function saveSecondSetOfData(obj) {
   obj.efternavn = document.querySelector("#userLastName").value;
   obj.adresse = document.querySelector("#userAdress").value;
   obj.city = document.querySelector("#userCity").value;
+  let userCounter = 0;
   userArray.forEach(user => {
     if (user.CPRnr == obj.CPRnr) {
       alert("Dette CPR nummer brugt før");
     } else {
       obj.CPRnr = document.querySelector("#userCpr").value;
-
-      sendInfoToRest(obj);
+      userCounter++;
     }
   });
+  if (userCounter == userArray.length) {
+    console.log("CORRECT");
+    sendInfoToRest(obj);
+  } else {
+    alert("Something Was Wrong");
+  }
 }
 
 function sendInfoToRest(obj) {
+  console.log("SEND");
   nemId.style.display = "block";
   userInfo.style.display = "none";
   const postData = JSON.stringify(obj);
-  fetch(
-    "https://examusers-4b00.restdb.io/rest/databaseuser?key=22631469345172666884",
-    {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        "x-apikey": "5cdbfbb9f66d7b1062cb34b7",
-        "cache-control": "no-cache"
-      },
-      body: postData
-    }
-  );
+  console.log(postData);
+  fetch("https://examusers-4b00.restdb.io/rest/databaseuser?", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": "5cdbfbb9f66d7b1062cb34b7",
+      "cache-control": "no-cache"
+    },
+    body: postData
+  });
 }

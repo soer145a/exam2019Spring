@@ -129,8 +129,8 @@ exports.EventDispatcher = exports.TweenPlugin = exports.Power4 = exports.Power3 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /*!
- * VERSION: 2.1.2
- * DATE: 2019-03-01
+ * VERSION: 2.1.3
+ * DATE: 2019-05-17
  * UPDATES AND DOCS AT: http://greensock.com
  *
  * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
@@ -1304,7 +1304,7 @@ var TweenLite = function (window) {
   p.ratio = 0;
   p._firstPT = p._targets = p._overwrittenProps = p._startAt = null;
   p._notifyPluginsOfEnabled = p._lazy = false;
-  TweenLite.version = "2.1.2";
+  TweenLite.version = "2.1.3";
   TweenLite.defaultEase = p._ease = new Ease(null, null, 1, 1);
   TweenLite.defaultOverwrite = "auto";
   TweenLite.ticker = _ticker;
@@ -2830,7 +2830,7 @@ _TweenLite._gsScope._gsDefine("TweenMax", ["core.Animation", "core.SimpleTimelin
 
         distances.max = max - min;
         distances.min = min;
-        distances.v = l = vars.amount || vars.each * (wrap > l ? l : !axis ? Math.max(wrap, l / wrap) : axis === "y" ? l / wrap : wrap) || 0;
+        distances.v = l = vars.amount || vars.each * (wrap > l ? l - 1 : !axis ? Math.max(wrap, l / wrap) : axis === "y" ? l / wrap : wrap) || 0;
         distances.b = l < 0 ? base - l : base;
       }
 
@@ -2860,7 +2860,7 @@ _TweenLite._gsScope._gsDefine("TweenMax", ["core.Animation", "core.SimpleTimelin
       p = TweenMax.prototype = _TweenLite.default.to({}, 0.1, {}),
       _blankArray = [];
 
-  TweenMax.version = "2.1.2";
+  TweenMax.version = "2.1.3";
   p.constructor = TweenMax;
   p.kill()._gc = false;
   TweenMax.killTweensOf = TweenMax.killDelayedCallsTo = _TweenLite.default.killTweensOf;
@@ -3488,7 +3488,7 @@ _TweenLite._gsScope._gsDefine("TweenMax", ["core.Animation", "core.SimpleTimelin
 
 
   p.progress = function (value, suppressEvents) {
-    return !arguments.length ? this._time / this.duration() : this.totalTime(this.duration() * (this._yoyo && (this._cycle & 1) !== 0 ? 1 - value : value) + this._cycle * (this._duration + this._repeatDelay), suppressEvents);
+    return !arguments.length ? this.duration() ? this._time / this._duration : this.ratio : this.totalTime(this.duration() * (this._yoyo && (this._cycle & 1) !== 0 ? 1 - value : value) + this._cycle * (this._duration + this._repeatDelay), suppressEvents);
   };
 
   p.totalProgress = function (value, suppressEvents) {
@@ -3606,7 +3606,7 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
       p = CSSPlugin.prototype = new _TweenLite.TweenPlugin("css");
 
   p.constructor = CSSPlugin;
-  CSSPlugin.version = "2.1.0";
+  CSSPlugin.version = "2.1.3";
   CSSPlugin.API = 2;
   CSSPlugin.defaultTransformPerspective = 0;
   CSSPlugin.defaultSkewType = "compensated";
@@ -3630,6 +3630,8 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
   var _numExp = /(?:\-|\.|\b)(\d|\.|e\-)+/g,
       _relNumExp = /(?:\d|\-\d|\.\d|\-\.\d|\+=\d|\-=\d|\+=.\d|\-=\.\d)+/g,
       _valuesExp = /(?:\+=|\-=|\-|\b)[\d\-\.]+[a-zA-Z0-9]*(?:%|\b)/gi,
+      //finds all the values that begin with numbers or += or -= and then a number. Includes suffixes. We use this to split complex values apart like "1px 5px 20px rgb(255,102,51)"
+  _valuesExpWithCommas = /(?:\+=|\-=|\-|\b)[\d\-\.]+[a-zA-Z0-9]*(?:%|\b),?/gi,
       //finds all the values that begin with numbers or += or -= and then a number. Includes suffixes. We use this to split complex values apart like "1px 5px 20px rgb(255,102,51)"
   _NaNExp = /(?![+-]?\d*\.?\d+|[+-]|e[+-]\d+)[^0-9]/g,
       //also allows scientific notation and doesn't kill the leading -/+ in -= and +=
@@ -3664,7 +3666,8 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
     }
   },
       _createElement = function _createElement(type, ns) {
-    return ns && _doc.createElementNS ? _doc.createElementNS(ns, type) : _doc.createElement(type);
+    var e = _doc.createElementNS ? _doc.createElementNS(ns || "http://www.w3.org/1999/xhtml", type) : _doc.createElement(type);
+    return e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://greensock.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
   },
       _tempDiv = _createElement("div"),
       _tempImg = _createElement("img"),
@@ -4399,7 +4402,7 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
         return a.join(",");
       }
 
-      vals = v.match(_valuesExp) || [];
+      vals = v.match(delim === "," ? _valuesExp : _valuesExpWithCommas) || [];
       i = vals.length;
 
       if (numVals > i--) {
@@ -4408,7 +4411,7 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
         }
       }
 
-      return pfx + vals.join(delim) + sfx;
+      return (pfx && v !== "none" ? v.substr(0, v.indexOf(vals[0])) || pfx : pfx) + vals.join(delim) + sfx; //note: prefix might be different, like for clipPath it could start with inset( or polygon(
     };
 
     return _formatter2;
@@ -5105,7 +5108,7 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
         rect,
         width;
 
-    if (_doc.createElementNS && !force) {
+    if (_doc.createElementNS && _docElement.appendChild && !force) {
       //IE8 and earlier doesn't support SVG anyway
       svg = _createSVG("svg", _docElement);
       rect = _createSVG("rect", svg, {
@@ -5279,7 +5282,7 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
 
     isDefault = !s || s === "none" || s === "matrix(1, 0, 0, 1, 0, 0)";
 
-    if (_transformProp && isDefault && !e.offsetParent) {
+    if (_transformProp && isDefault && !e.offsetParent && e !== _docElement) {
       //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
       //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
       n = style.display;
@@ -6250,10 +6253,10 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
   });
 
   _registerComplexSpecialProp("clipPath", {
-    defaultValue: "inset(0px)",
+    defaultValue: "inset(0%)",
     prefix: true,
     multi: true,
-    formatter: _getFormatter("inset(0px 0px 0px 0px)", false, true)
+    formatter: _getFormatter("inset(0% 0% 0% 0%)", false, true)
   });
 
   _registerComplexSpecialProp("borderRadius", {
@@ -6670,7 +6673,11 @@ _TweenLite._gsScope._gsDefine("plugins.CSSPlugin", ["plugins.TweenPlugin", "Twee
       difData = _cssDif(t, bs, _getAllStyles(t), vars, cnptLookup);
       t.setAttribute("class", b);
       pt.data = difData.firstMPT;
-      t.style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+
+      if (t.style.cssText !== cssText) {
+        //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://greensock.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
+        t.style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+      }
 
       pt = pt.xfirst = cssp.parse(t, difData.difs, pt, plugin); //we record the CSSPropTween as the xfirst so that we can handle overwriting propertly (if "className" gets overwritten, we must kill all the properties associated with the className part of the tween, so we can loop through from xfirst to the pt itself)
 
@@ -7774,7 +7781,7 @@ _TweenLite._gsScope._gsDefine("TimelineLite", ["core.Animation", "core.SimpleTim
 
         distances.max = max - min;
         distances.min = min;
-        distances.v = l = vars.amount || vars.each * (wrap > l ? l : !axis ? Math.max(wrap, l / wrap) : axis === "y" ? l / wrap : wrap) || 0;
+        distances.v = l = vars.amount || vars.each * (wrap > l ? l - 1 : !axis ? Math.max(wrap, l / wrap) : axis === "y" ? l / wrap : wrap) || 0;
         distances.b = l < 0 ? base - l : base;
       }
 
@@ -7784,7 +7791,7 @@ _TweenLite._gsScope._gsDefine("TimelineLite", ["core.Animation", "core.SimpleTim
   },
       p = TimelineLite.prototype = new _TweenLite.SimpleTimeline();
 
-  TimelineLite.version = "2.1.2";
+  TimelineLite.version = "2.1.3";
   TimelineLite.distribute = _distribute;
   p.constructor = TimelineLite;
   p.kill()._gc = p._forcingPlayhead = p._hasPause = false;
@@ -8181,6 +8188,33 @@ _TweenLite._gsScope._gsDefine("TimelineLite", ["core.Animation", "core.SimpleTim
       time += self._time - prevTime;
     }
 
+    if (self._hasPause && !self._forcingPlayhead && !suppressEvents) {
+      if (time > prevTime) {
+        tween = self._first;
+
+        while (tween && tween._startTime <= time && !pauseTween) {
+          if (!tween._duration) if (tween.data === "isPause" && !tween.ratio && !(tween._startTime === 0 && self._rawPrevTime === 0)) {
+            pauseTween = tween;
+          }
+          tween = tween._next;
+        }
+      } else {
+        tween = self._last;
+
+        while (tween && tween._startTime >= time && !pauseTween) {
+          if (!tween._duration) if (tween.data === "isPause" && tween._rawPrevTime > 0) {
+            pauseTween = tween;
+          }
+          tween = tween._prev;
+        }
+      }
+
+      if (pauseTween) {
+        self._time = self._totalTime = time = pauseTween._startTime;
+        pauseTime = self._startTime + (self._reversed ? self._duration - time : time) / self._timeScale;
+      }
+    }
+
     if (time >= totalDur - _tinyNum && time >= 0) {
       //to work around occasional floating point math artifacts.
       self._totalTime = self._time = totalDur;
@@ -8249,33 +8283,6 @@ _TweenLite._gsScope._gsDefine("TimelineLite", ["core.Animation", "core.SimpleTim
         }
       }
     } else {
-      if (self._hasPause && !self._forcingPlayhead && !suppressEvents) {
-        if (time >= prevTime) {
-          tween = self._first;
-
-          while (tween && tween._startTime <= time && !pauseTween) {
-            if (!tween._duration) if (tween.data === "isPause" && !tween.ratio && !(tween._startTime === 0 && self._rawPrevTime === 0)) {
-              pauseTween = tween;
-            }
-            tween = tween._next;
-          }
-        } else {
-          tween = self._last;
-
-          while (tween && tween._startTime >= time && !pauseTween) {
-            if (!tween._duration) if (tween.data === "isPause" && tween._rawPrevTime > 0) {
-              pauseTween = tween;
-            }
-            tween = tween._prev;
-          }
-        }
-
-        if (pauseTween) {
-          self._time = self._totalTime = time = pauseTween._startTime;
-          pauseTime = self._startTime + time / self._timeScale;
-        }
-      }
-
       self._totalTime = self._time = self._rawPrevTime = time;
     }
 
@@ -8699,8 +8706,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 /*!
- * VERSION: 2.1.2
- * DATE: 2019-03-01
+ * VERSION: 2.1.3
+ * DATE: 2019-05-17
  * UPDATES AND DOCS AT: http://greensock.com
  *
  * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
@@ -8731,7 +8738,7 @@ _TweenLite._gsScope._gsDefine("TimelineMax", ["TimelineLite", "TweenLite", "easi
 
   p.constructor = TimelineMax;
   p.kill()._gc = false;
-  TimelineMax.version = "2.1.2";
+  TimelineMax.version = "2.1.3";
 
   p.invalidate = function () {
     this._yoyo = !!this.vars.yoyo;
@@ -8967,37 +8974,37 @@ _TweenLite._gsScope._gsDefine("TimelineMax", ["TimelineLite", "TweenLite", "easi
           }
         }
       }
+    }
 
-      if (self._hasPause && !self._forcingPlayhead && !suppressEvents) {
-        time = self._time;
+    if (self._hasPause && !self._forcingPlayhead && !suppressEvents) {
+      time = self._time;
 
-        if (time >= prevTime || self._repeat && prevCycle !== self._cycle) {
-          tween = self._first;
+      if (time > prevTime || self._repeat && prevCycle !== self._cycle) {
+        tween = self._first;
 
-          while (tween && tween._startTime <= time && !pauseTween) {
-            if (!tween._duration) if (tween.data === "isPause" && !tween.ratio && !(tween._startTime === 0 && self._rawPrevTime === 0)) {
-              pauseTween = tween;
-            }
-            tween = tween._next;
+        while (tween && tween._startTime <= time && !pauseTween) {
+          if (!tween._duration) if (tween.data === "isPause" && !tween.ratio && !(tween._startTime === 0 && self._rawPrevTime === 0)) {
+            pauseTween = tween;
           }
-        } else {
-          tween = self._last;
-
-          while (tween && tween._startTime >= time && !pauseTween) {
-            if (!tween._duration) if (tween.data === "isPause" && tween._rawPrevTime > 0) {
-              pauseTween = tween;
-            }
-            tween = tween._prev;
-          }
+          tween = tween._next;
         }
+      } else {
+        tween = self._last;
 
-        if (pauseTween) {
-          pauseTime = self._startTime + pauseTween._startTime / self._timeScale;
-
-          if (pauseTween._startTime < dur) {
-            self._time = self._rawPrevTime = time = pauseTween._startTime;
-            self._totalTime = time + self._cycle * (self._totalDuration + self._repeatDelay);
+        while (tween && tween._startTime >= time && !pauseTween) {
+          if (!tween._duration) if (tween.data === "isPause" && tween._rawPrevTime > 0) {
+            pauseTween = tween;
           }
+          tween = tween._prev;
+        }
+      }
+
+      if (pauseTween) {
+        pauseTime = self._startTime + (self._reversed ? self._duration - pauseTween._startTime : pauseTween._startTime) / self._timeScale;
+
+        if (pauseTween._startTime < dur) {
+          self._time = self._rawPrevTime = time = pauseTween._startTime;
+          self._totalTime = time + self._cycle * (self._totalDuration + self._repeatDelay);
         }
       }
     }
@@ -9348,8 +9355,8 @@ exports.default = exports.BezierPlugin = void 0;
 var _TweenLite = require("./TweenLite.js");
 
 /*!
- * VERSION: 1.3.8
- * DATE: 2018-05-30
+ * VERSION: 1.3.9
+ * DATE: 2019-05-17
  * UPDATES AND DOCS AT: http://greensock.com
  *
  * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
@@ -9772,7 +9779,7 @@ var _RAD2DEG = 180 / Math.PI,
     BezierPlugin = _TweenLite._gsScope._gsDefine.plugin({
   propName: "bezier",
   priority: -1,
-  version: "1.3.8",
+  version: "1.3.9",
   API: 2,
   global: true,
   //gets called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
@@ -9875,7 +9882,8 @@ var _RAD2DEG = 180 / Math.PI,
         val,
         l,
         lengths,
-        curSeg;
+        curSeg,
+        v1;
 
     if (!this._timeRes) {
       curIndex = v < 0 ? 0 : v >= 1 ? segments - 1 : segments * v >> 0;
@@ -9883,22 +9891,22 @@ var _RAD2DEG = 180 / Math.PI,
     } else {
       lengths = this._lengths;
       curSeg = this._curSeg;
-      v *= this._length;
+      v1 = v * this._length;
       i = this._li; //find the appropriate segment (if the currently cached one isn't correct)
 
-      if (v > this._l2 && i < segments - 1) {
+      if (v1 > this._l2 && i < segments - 1) {
         l = segments - 1;
 
-        while (i < l && (this._l2 = lengths[++i]) <= v) {}
+        while (i < l && (this._l2 = lengths[++i]) <= v1) {}
 
         this._l1 = lengths[i - 1];
         this._li = i;
         this._curSeg = curSeg = this._segments[i];
         this._s2 = curSeg[this._s1 = this._si = 0];
-      } else if (v < this._l1 && i > 0) {
-        while (i > 0 && (this._l1 = lengths[--i]) >= v) {}
+      } else if (v1 < this._l1 && i > 0) {
+        while (i > 0 && (this._l1 = lengths[--i]) >= v1) {}
 
-        if (i === 0 && v < this._l1) {
+        if (i === 0 && v1 < this._l1) {
           this._l1 = 0;
         } else {
           i++;
@@ -9913,20 +9921,20 @@ var _RAD2DEG = 180 / Math.PI,
 
       curIndex = i; //now find the appropriate sub-segment (we split it into the number of pieces that was defined by "precision" and measured each one)
 
-      v -= this._l1;
+      v1 -= this._l1;
       i = this._si;
 
-      if (v > this._s2 && i < curSeg.length - 1) {
+      if (v1 > this._s2 && i < curSeg.length - 1) {
         l = curSeg.length - 1;
 
-        while (i < l && (this._s2 = curSeg[++i]) <= v) {}
+        while (i < l && (this._s2 = curSeg[++i]) <= v1) {}
 
         this._s1 = curSeg[i - 1];
         this._si = i;
-      } else if (v < this._s1 && i > 0) {
-        while (i > 0 && (this._s1 = curSeg[--i]) >= v) {}
+      } else if (v1 < this._s1 && i > 0) {
+        while (i > 0 && (this._s1 = curSeg[--i]) >= v1) {}
 
-        if (i === 0 && v < this._s1) {
+        if (i === 0 && v1 < this._s1) {
           this._s1 = 0;
         } else {
           i++;
@@ -9936,7 +9944,7 @@ var _RAD2DEG = 180 / Math.PI,
         this._si = i;
       }
 
-      t = (i + (v - this._s1) / (this._s2 - this._s1)) * this._prec || 0;
+      t = v === 1 ? 1 : (i + (v1 - this._s1) / (this._s2 - this._s1)) * this._prec || 0;
     }
 
     inv = 1 - t;
@@ -10772,8 +10780,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 /*!
- * VERSION: 2.1.2
- * DATE: 2019-03-01
+ * VERSION: 2.1.3
+ * DATE: 2019-05-17
  * UPDATES AND DOCS AT: http://greensock.com
  *
  * @license Copyright (c) 2008-2019, GreenSock. All rights reserved.
@@ -10788,7 +10796,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var TweenMax = _TweenMaxBase.default;
 exports.default = exports.TweenMax = TweenMax;
 TweenMax._autoActivated = [_TimelineLite.default, _TimelineMax.default, _CSSPlugin.default, _AttrPlugin.default, _BezierPlugin.default, _RoundPropsPlugin.default, _DirectionalRotationPlugin.default, _EasePack.Back, _EasePack.Elastic, _EasePack.Bounce, _EasePack.RoughEase, _EasePack.SlowMo, _EasePack.SteppedEase, _EasePack.Circ, _EasePack.Expo, _EasePack.Sine, _EasePack.ExpoScaleEase];
-},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js":[function(require,module,exports) {
+},{"./TweenLite.js":"node_modules/gsap/TweenLite.js","./TweenMaxBase.js":"node_modules/gsap/TweenMaxBase.js","./CSSPlugin.js":"node_modules/gsap/CSSPlugin.js","./AttrPlugin.js":"node_modules/gsap/AttrPlugin.js","./RoundPropsPlugin.js":"node_modules/gsap/RoundPropsPlugin.js","./DirectionalRotationPlugin.js":"node_modules/gsap/DirectionalRotationPlugin.js","./TimelineLite.js":"node_modules/gsap/TimelineLite.js","./TimelineMax.js":"node_modules/gsap/TimelineMax.js","./BezierPlugin.js":"node_modules/gsap/BezierPlugin.js","./EasePack.js":"node_modules/gsap/EasePack.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js":[function(require,module,exports) {
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10874,7 +10882,7 @@ module.exports = function (qs, sep, eq, options) {
 var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
-},{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js":[function(require,module,exports) {
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10963,12 +10971,12 @@ var objectKeys = Object.keys || function (obj) {
 
   return res;
 };
-},{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js":[function(require,module,exports) {
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
-},{"./decode":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js","./encode":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js"}],"spil.js":[function(require,module,exports) {
+},{"./decode":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/decode.js","./encode":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/encode.js"}],"spil.js":[function(require,module,exports) {
 "use strict";
 
 var _TweenMax = _interopRequireDefault(require("gsap/TweenMax"));
@@ -11167,7 +11175,7 @@ function selectThree(array) {
   arrayPositionArray.push(arrayPosition);
   resultsArray.push(imageVariable_1, imageVariable_2, imageVariable_3);
 }
-},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","querystring":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"gsap/TweenMax":"node_modules/gsap/TweenMax.js","querystring":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/querystring-es3/index.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -11195,7 +11203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53832" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55622" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -11370,5 +11378,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","spil.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","spil.js"], null)
 //# sourceMappingURL=/spil.6d569108.js.map
